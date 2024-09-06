@@ -1,0 +1,48 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block title %}
+ACS Coffee | Home
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+{% if output != None %}
+<div class="acs-form">
+	<div class="acs-list">
+		<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
+	</div>
+</div>
+<br>
+<br>
+{% endif %}
+
+<div class="acs-form">
+<div class="acs-title">
+<div class="acs-row">
+	<div class="acs-col s"><p>Name</p></div>
+	<div class="acs-col s"><p>Debth</p></div>
+	<div class="acs-col s"><p>Last updated</p></div>
+</div>
+</div>
+<br>
+{% for employee in employees %}
+<div class="acs-list">
+<div class="acs-row">
+	<div class="acs-col s"><p>{{employee.name}}</p></div>
+	<div class="acs-col s"><p>{{employee.debth}} €</p></div>
+	<div class="acs-col s"><p>{{employee.updated_at}}</p></div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}

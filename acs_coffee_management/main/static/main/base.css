@@ -1,0 +1,88 @@
+/* color scheme */
+:root {
+  --background: #f2f2f2;
+  --primary: #FFDE03;
+  --secondary: #0336FF;
+  --border: #d8d8d8;
+}
+
+/* global settings */
+html {
+  font-family: "Roboto", Arial, sans-serif;
+  color: var(--black1);
+}
+
+a {
+  text-decoration: none !important;
+}
+
+input:focus {
+  outline: none;   
+}
+
+/* main nav */
+.acs-nav {
+	overflow: hidden;
+	padding: 0 32px;
+	background-color: white;
+	border-bottom: 1px solid var(--border);
+}
+
+.acs-link {
+	color: black;
+	padding: 16px;
+	font-size: 15px;
+}
+
+.acs-logo {
+	height: 32px;
+}
+
+.acs-content {
+	padding: 32px;
+	text-align: center;
+}
+
+.acs-footer {
+	padding: 32px;
+	text-align: center;
+}
+
+.acs-form {
+	border-radius: 16px;
+  	border: 1px solid var(--border);
+}
+
+/* Main content */
+.acs-title {
+	font-weight: bold;
+	font-size: 11px;
+	border-bottom: 1px solid var(--border);
+}
+
+.acs-list {
+	font-size: 11px;
+}
+
+/* Rows and Cols */
+.acs-row {
+	width: 100%;
+}
+
+.acs-row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.acs-col {
+	float: left;
+}
+
+.s {
+	width: 25%;
+}
+
+.m {
+	width: 50%;
+}

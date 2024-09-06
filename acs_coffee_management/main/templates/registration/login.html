@@ -1,0 +1,39 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block title %}
+ACS Coffee | Login
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+<div class="acs-section">
+  <div class="acs-form">
+  	<img class="osd-logo" src="{% static 'main/eonerc_logo.png' %}">
+  	<form method="post">
+		{% csrf_token %}
+  		{{ form.as_p }}
+  		<button class="osd-link" type="submit">Login</button>
+		</form>
+		<p><a class="osd-link" href="{% url 'password_reset' %}">Lost password?</a></p>
+  </div>
+</div>
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{% block sticker %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block footer%}
+{% endblock %}
+
+{% block js %}
+{% endblock %}
