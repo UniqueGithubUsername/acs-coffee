@@ -25,16 +25,17 @@ ACS Coffee | Home
 <div class="acs-row">
 	<div class="acs-col s"><p>Name</p></div>
 	<div class="acs-col s"><p>Debth</p></div>
-	<div class="acs-col s"><p>Last updated</p></div>
+	<div class="acs-col s"><p>Coffees</p></div>
+	<div class="acs-col s"><p>Actions</p></div>
 </div>
 </div>
-<br>
 {% for employee in employees %}
 <div class="acs-list">
 <div class="acs-row">
 	<div class="acs-col s"><p>{{employee.name}}</p></div>
 	<div class="acs-col s"><p>{{employee.debth}} €</p></div>
-	<div class="acs-col s"><p>{{employee.updated_at}}</p></div>
+	<div class="acs-col s"><p>{{employee.coffees}} cup/s</p></div>
+	<div class="acs-col s"><p><a href="{% url 'add' employee.id %}">Add a cup</a></p></div>
 </div>
 </div>
 {% endfor %}

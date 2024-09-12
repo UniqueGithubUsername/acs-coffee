@@ -1,38 +1,46 @@
 import datetime
+import csv
+import openpyxl
 import pandas as pd
+from decimal import Decimal
 
 from django.shortcuts import redirect, render
 from django.core.mail import send_mail, send_mass_mail
 
 from .models import Employee
 
-# Create your views here.
 def index(request):
-	# Get employees
 	employees = Employee.objects.all()
-
 	context = {'employees':employees}
+	return render(request, 'main/index.html', context)
 
+def importxlsx(request):
+	df = pd.read_excel('2024-09-12_employees_input.xlsx')
+	
+	for index, row in df.iterrows():
+		print(row['name'])
+		print(row['qr'])
+		print(row['email'])
+		print(row['debth'])
+		obj, created = Employee.objects.get_or_create(name=row['name'], qr=row['qr'], email=row['email'], debth=row['debth'], coffees=row['coffees'])
+
+	employees = Employee.objects.all()
+	context = {'employees':employees}
 	return render(request, 'main/index.html', context)
 
 def export(request):
-	# Get employees
 	employees = Employee.objects.all()
-
 	# Save as .csv
 	df = pd.DataFrame(o.__dict__ for o in employees)
-	df.to_csv(str(datetime.date.today()) + "_employees.csv")
-
-	context = {'employees':employees, 'output':"Successfully exported " + str(datetime.date.today()) + "_employees.csv"}
-
+	# Remove timezone from columns
+	df['updated_at'] = df['updated_at'].dt.tz_localize(None)
+	df.to_excel(str(datetime.date.today()) + "_employees.xlsx")
+	context = {'employees':employees, 'output':"Successfully exported " + str(datetime.date.today()) + "_employees.xlsx"}
 	return render(request, 'main/index.html', context)
 
 def broadcast(request):
-	# Get employees
 	employees = Employee.objects.all()
-
 	for employee in employees:
-
 		# Send emails to each employees
 		send_mail(
     	"ACS Coffee | Current debth",
@@ -41,7 +49,17 @@ def broadcast(request):
     	[employee.email],
     	fail_silently=False,
     	)
-
 	context = {'employees':employees, 'output':"Successfully broadcasted to employees."}
+	return render(request, 'main/index.html', context)
 
+def add(request, id):
+	employee = Employee.objects.get(id=id)
+	print(employee.name)
+	print(employee.coffees)
+	employee.coffees = employee.coffees + 1
+	employee.save()
+
+
+	employees = Employee.objects.all()
+	context = {'employees':employees}
 	return render(request, 'main/index.html', context)

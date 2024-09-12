@@ -1,2 +1,0 @@
-,_state,id,name,email,debth,updated_at
-0,<django.db.models.base.ModelState object at 0x000001BB57D7A580>,1,"Lenz, Lukas",lukas.lenz@eonerc.rwth-aachen.de,3.60,2024-09-06 12:49:20.000619+00:00

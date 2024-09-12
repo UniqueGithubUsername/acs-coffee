@@ -9,7 +9,7 @@
 /* global settings */
 html {
   font-family: "Roboto", Arial, sans-serif;
-  color: var(--black1);
+  font-size: 11px;
 }
 
 a {
@@ -31,7 +31,7 @@ input:focus {
 .acs-link {
 	color: black;
 	padding: 16px;
-	font-size: 15px;
+	font-size: 11px;
 }
 
 .acs-logo {
@@ -40,7 +40,7 @@ input:focus {
 
 .acs-content {
 	padding: 32px;
-	text-align: center;
+	text-align: left;
 }
 
 .acs-footer {
@@ -49,6 +49,7 @@ input:focus {
 }
 
 .acs-form {
+	background-color: white;
 	border-radius: 16px;
   	border: 1px solid var(--border);
 }
@@ -56,16 +57,16 @@ input:focus {
 /* Main content */
 .acs-title {
 	font-weight: bold;
-	font-size: 11px;
 	border-bottom: 1px solid var(--border);
 }
 
-.acs-list {
-	font-size: 11px;
+.acs-list:not(:last-child) {
+	border-bottom: 1px solid var(--border);
 }
 
 /* Rows and Cols */
 .acs-row {
+	padding: 0 16px;
 	width: 100%;
 }
 
