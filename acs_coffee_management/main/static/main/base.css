@@ -4,6 +4,19 @@
   --primary: #FFDE03;
   --secondary: #0336FF;
   --border: #d8d8d8;
+  --black: #212121;
+  --black1: #828282;
+  --c1: #987654;
+  --c2: #987654;
+  --c3: #a28465;
+  --c4: #ad9176; 
+  --c5: #b79f87;
+  --c6: #c1ad98;
+  --c7: #ccbbaa;
+  --c8: #d6c8bb;
+  --c9: #e0d6cc;
+  --c10: #eae4dd;
+  --c11: #f5f1ee;
 }
 
 /* global settings */
@@ -24,14 +37,18 @@ input:focus {
 .acs-nav {
 	overflow: hidden;
 	padding: 0 32px;
-	background-color: white;
-	border-bottom: 1px solid var(--border);
+	background-color: var(--background);
 }
 
 .acs-link {
-	color: black;
+	font-weight: bold;
+	color: var(--black1);
 	padding: 16px;
 	font-size: 11px;
+}
+
+.acs-link:hover {
+	color: var(--black);
 }
 
 .acs-logo {
@@ -39,11 +56,13 @@ input:focus {
 }
 
 .acs-content {
-	padding: 32px;
-	text-align: left;
+	padding: 32px 32px;
+	background-color: var(--background);
+	text-align: center;
 }
 
 .acs-footer {
+	background-color: var(--background);
 	padding: 32px;
 	text-align: center;
 }
@@ -51,7 +70,6 @@ input:focus {
 .acs-form {
 	background-color: white;
 	border-radius: 16px;
-  	border: 1px solid var(--border);
 }
 
 /* Main content */
@@ -64,9 +82,59 @@ input:focus {
 	border-bottom: 1px solid var(--border);
 }
 
+/* Fullsize Card */
+.acs-fullsize {
+	text-align: center;
+	padding: 32px 32px;
+	min-height: 80vh;
+}
+
+.acs-card {
+	display: inline-block;
+	border-radius: 16px;
+	text-align: center;
+	background-color: var(--background);
+}
+
+.acs-card-logo {
+	border-radius: 16px 16px 0 0;
+	height: 300px;
+}
+
+.acs-card-low {
+	padding: 32px;
+}
+
+.acs-text-high {
+	font-weight: bold;
+	font-size: 21px;
+	color: var(--primary);
+}
+
+.acs-text-low {
+	font-weight: bold;
+	font-size: 11px;
+	color: var(--black1);
+}
+
+.acs-button {
+	cursor: pointer;
+	border: none;
+	font-weight: bold;
+	font-size: 13px;
+	display: inline-block;
+	background-color: var(--black);
+	border-radius: 8px;
+	padding: 8px 16px;
+	color: var(--black1);
+}
+
+.acs-button:hover {
+	color: var(--black);
+}
+
 /* Rows and Cols */
 .acs-row {
-	padding: 0 16px;
 	width: 100%;
 }
 

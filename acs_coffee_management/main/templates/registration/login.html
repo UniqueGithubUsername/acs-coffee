@@ -10,16 +10,15 @@ ACS Coffee | Login
 {% endblock %}
 
 {% block content %}
-<div class="acs-section">
-  <div class="acs-form">
-  	<img class="osd-logo" src="{% static 'main/eonerc_logo.png' %}">
-  	<form method="post">
-		{% csrf_token %}
-  		{{ form.as_p }}
-  		<button class="osd-link" type="submit">Login</button>
+<div class="acs-fullsize">
+	<div class="acs-card">
+		<img class="osd-logo" src="{% static 'main/eonerc_logo.png' %}">
+  		<form method="post">
+			{% csrf_token %}
+  			{{ form.as_p }}
+  			<button class="acs-button" type="submit">Login</button>
 		</form>
-		<p><a class="osd-link" href="{% url 'password_reset' %}">Lost password?</a></p>
-  </div>
+	</div>
 </div>
 {% endblock %}
 

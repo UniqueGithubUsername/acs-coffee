@@ -19,9 +19,12 @@
   <a class="acs-link" href="{% url 'logout' %}" style="float: right;"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
   <a class="acs-link" href="{% url 'export' %}" style="float: right;"><i class="fa fa-download" aria-hidden="true"></i> Export</a>
   <a class="acs-link" href="{% url 'importxlsx' %}" style="float: right;"><i class="fa fa-upload" aria-hidden="true"></i> Import</a>
+  <a class="acs-link" href="{% url 'calcdebth' %}" style="float: right;"><i class="fa fa-coffee" aria-hidden="true"></i> Add all coffees to debth</a>
   <a class="acs-link" href="{% url 'broadcast' %}" style="float: right;"><i class="fa fa-bullhorn" aria-hidden="true"></i> Broadcast</a>
+  <a class="acs-link" href="{% url 'newemployee' %}" style="float: right;"><i class="fa fa-plus" aria-hidden="true"></i> Add person</a>
   {% else %}
   <a class="acs-link" href="{% url 'login' %}" style="float: right;"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+  <a class="acs-link" href="{% url 'newemployee' %}" style="float: right;"><i class="fa fa-plus" aria-hidden="true"></i> Add person</a>
   {% endif %}
   {% block nav %}
   {% endblock %}
@@ -39,7 +42,5 @@
   </div>
 </div>
 
-{%block js%}
-{%endblock%}
 </body>
 </html>

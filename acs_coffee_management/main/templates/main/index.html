@@ -11,10 +11,8 @@ ACS Coffee | Home
 
 {% block content %}
 {% if output != None %}
-<div class="acs-form">
-	<div class="acs-list">
+<div class="acs-card">
 		<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
-	</div>
 </div>
 <br>
 <br>
@@ -35,15 +33,14 @@ ACS Coffee | Home
 	<div class="acs-col s"><p>{{employee.name}}</p></div>
 	<div class="acs-col s"><p>{{employee.debth}} €</p></div>
 	<div class="acs-col s"><p>{{employee.coffees}} cup/s</p></div>
-	<div class="acs-col s"><p><a href="{% url 'add' employee.id %}">Add a cup</a></p></div>
+	<div class="acs-col s">
+		{% if user.is_authenticated %}
+		<p><a class="acs-link" href="{% url 'mail' employee.id %}"><i class="fa fa-envelope" aria-hidden="true"></i> Mail to user</a></p>
+		{% endif %}
+		<p><a class="acs-link" href="{% url 'user' employee.id %}"><i class="fa fa-user" aria-hidden="true"></i> See user</a></p>
+	</div>
 </div>
 </div>
 {% endfor %}
 </div>
-{% endblock %}
-
-{% block navigation %}
-{% endblock %}
-
-{% block js %}
 {% endblock %}

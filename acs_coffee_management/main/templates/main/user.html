@@ -1,0 +1,34 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block title %}
+ACS Coffee | {{employee.name}}
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+<div class="acs-fullsize">
+	<div class="acs-card">
+		<img class="acs-card-logo" src="{% static 'main/onlyonecup.jpg' %}">
+		<div class="acs-row">
+			<h1>{{employee.name}}</h1>
+		</div>
+		<div class="acs-row">
+			<div class="acs-col m acs-text-high">{{employee.coffees}}</div>
+			<div class="acs-col m acs-text-high">{{employee.debth}}</div>
+		</div>
+		<div class="acs-row">
+			<div class="acs-col m acs-text-low">cup/s</div>
+			<div class="acs-col m acs-text-low">€</div>
+		</div>
+		<div class="acs-card-low">
+			<p><a class="acs-button" href="{% url 'add' employee.qr %}">Add a cup</a></p>
+			<p><a class="acs-button" target="_blank" href="https://www.paypal.com/de/home/">Link to Paypal</a></p>
+			<p><a class="acs-button" href="{% url 'index' %}">Back to home</a></p>
+		</div>
+	</div>
+</div>
+{% endblock %}
