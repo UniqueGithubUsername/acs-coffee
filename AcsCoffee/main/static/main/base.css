@@ -1,0 +1,127 @@
+/* color scheme */
+:root {
+  --background: #e6ecef;
+  --white: #fff;
+  --white1: #e8e8e8;
+  --black: #212121;
+  --black1: #565656;
+  --black2: #828282;
+  --primary: #FFDE03;
+  --secondary: #0336FF;
+}
+
+/* global settings */
+html {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 11px;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+input:focus {
+  outline: none;   
+}
+
+/* nav */
+.acs-nav {
+	overflow: hidden;
+	padding: 0 32px;
+	background-color: var(--background);
+}
+
+.acs-link {
+	font-weight: bold;
+	color: var(--black1);
+	padding: 16px;
+	font-size: 11px;
+}
+
+.acs-link:hover {
+	color: var(--black);
+}
+
+.acs-logo {
+	height: 32px;
+}
+
+/* content */
+.acs-content {
+	background-color: var(--background);
+	padding: 16px;
+}
+
+/* footer */
+.acs-footer {
+	background-color: white;
+	padding: 16px;
+	text-align: center;
+}
+
+.acs-card {
+	background-color: var(--white);
+	text-align: left;
+	padding: 16px;
+	border-radius: 16px;
+}
+
+.acs-card-logo {
+	border-radius: 16px 16px 0 0;
+	height: 300px;
+}
+
+.acs-card-title {
+	font-weight: bold;
+	font-size: 21px;
+}
+
+.acs-text-high {
+	font-weight: bold;
+	font-size: 13px;
+	color: var(--black1);
+}
+
+.acs-text-low {
+	font-weight: bold;
+	font-size: 11px;
+	color: var(--black2);
+}
+
+.acs-button {
+	cursor: pointer;
+	border: none;
+	font-weight: bold;
+	font-size: 13px;
+	display: inline-block;
+	border-radius: 8px;
+	padding: 8px 16px;
+	color: var(--black1);
+}
+
+.acs-button:hover {
+	color: var(--black);
+}
+
+/* rows cols */
+.acs-row {
+	width: 100%;
+}
+
+.acs-row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.acs-col {
+	float: left;
+}
+
+.s {
+	width: 25%;
+}
+
+.m {
+	width: 50%;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+  <!-- Base CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'main/base.css' %}">
+
+  <!-- Load an icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="acs-nav" id="acs-nav">
+  <a class="osd-nav-link" href="{% url 'index' %}"><img class="acs-logo" src="{% static 'main/eonerc_logo.png' %}"></a>
+  {% if user.is_authenticated %}
+  <a class="acs-link" href="{% url 'logout' %}" style="float: right;"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+  <a class="acs-link" style="float: right;"><i class="fa fa-user" aria-hidden="true"></i> {{user.username}}</a>
+  {% else %}
+  <a class="acs-link" href="{% url 'login' %}" style="float: right;"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign in</a>
+  <a class="acs-link" href="{% url 'register' %}" style="float: right;"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign up</a>
+  {% endif %}
+  {% block nav %}
+  {% endblock %}
+</div>
+
+{% block content %}
+{% endblock %}
+
+<div class="acs-footer">
+  <div class="acs-row">
+    <div class="acs-col m"><img class="acs-logo" src="{% static 'main/rwth_logo.png' %}"></div>
+    <div class="acs-col m"><img class="acs-logo" src="{% static 'main/eonerc_logo.png' %}"></div>
+  </div>
+</div>
+
+</body>
+</html>
