@@ -6,13 +6,15 @@ from decimal import Decimal
 
 from django.shortcuts import redirect, render
 from django.core.mail import send_mail, send_mass_mail
+from django.contrib.auth.decorators import login_required
 
-from .models import Employee
+from .models import ExtendedUser, Employee
 from .forms import EmployeeForm
 
 def index(request):
-	employees = Employee.objects.all()
-	context = {'employees':employees}
+	#employee = ExtendedUser.objects.get(id=request.user.id)
+	employee = ExtendedUser.objects.all()
+	context = {'employee':employee}
 	return render(request, 'main/index.html', context)
 
 def importxlsx(request):

@@ -3,44 +3,30 @@
 {% load static %}
 
 {% block title %}
-ACS Coffee | Home
+ACS Coffee | {{employee.name}}
 {% endblock %}
 
 {% block nav %}
 {% endblock %}
 
 {% block content %}
-{% if output != None %}
-<div class="acs-card">
-		<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
-</div>
-<br>
-<br>
-{% endif %}
-
-<div class="acs-form">
-<div class="acs-title">
-<div class="acs-row">
-	<div class="acs-col s"><p>Name</p></div>
-	<div class="acs-col s"><p>Debth</p></div>
-	<div class="acs-col s"><p>Coffees</p></div>
-	<div class="acs-col s"><p>Actions</p></div>
-</div>
-</div>
-{% for employee in employees %}
-<div class="acs-list">
-<div class="acs-row">
-	<div class="acs-col s"><p>{{employee.name}}</p></div>
-	<div class="acs-col s"><p>{{employee.debth}} €</p></div>
-	<div class="acs-col s"><p>{{employee.coffees}} cup/s</p></div>
-	<div class="acs-col s">
-		{% if user.is_authenticated %}
-		<p><a class="acs-link" href="{% url 'mail' employee.id %}"><i class="fa fa-envelope" aria-hidden="true"></i> Mail to user</a></p>
-		{% endif %}
-		<p><a class="acs-link" href="{% url 'user' employee.id %}"><i class="fa fa-user" aria-hidden="true"></i> See user</a></p>
+<div class="acs-fullsize">
+	<div class="acs-card">
+		<img class="acs-card-logo" src="{% static 'main/onlyonecup.jpg' %}">
+		<div class="acs-row">
+			<h1>{{employee.name}}</h1>
+		</div>
+		<div class="acs-row">
+			<div class="acs-col m acs-text-high">{{employee.coffees}}</div>
+			<div class="acs-col m acs-text-high">{{employee.debth}}</div>
+		</div>
+		<div class="acs-row">
+			<div class="acs-col m acs-text-low">cup/s</div>
+			<div class="acs-col m acs-text-low">€</div>
+		</div>
+		<div class="acs-card-low">
+			<p><a class="acs-button" href="{% url 'index' %}">Back to home</a></p>
+		</div>
 	</div>
-</div>
-</div>
-{% endfor %}
 </div>
 {% endblock %}
