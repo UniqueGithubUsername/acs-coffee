@@ -2,20 +2,24 @@ import datetime
 import csv
 import openpyxl
 import pandas as pd
+
 from decimal import Decimal
 
 from django.shortcuts import redirect, render
 from django.core.mail import send_mail, send_mass_mail
 from django.contrib.auth.decorators import login_required
 
-from .models import ExtendedUser, Employee
+from .models import Employee, Coffee
 from .forms import EmployeeForm
 
 def index(request):
-	#employee = ExtendedUser.objects.get(id=request.user.id)
-	employee = ExtendedUser.objects.all()
-	context = {'employee':employee}
+	employees = Employee.objects.all()
+	context = {'employees':employees}
 	return render(request, 'main/index.html', context)
+
+def faq(request):
+	context = {}
+	return render(request, 'main/faq.html', context)
 
 def importxlsx(request):
 	df = pd.read_excel('employees_input.xlsx')
@@ -75,7 +79,24 @@ def mailtoemployee(request, id):
 		fail_silently=False,)
 
 	employees = Employee.objects.all()
-	context = {'employees':employees, 'output':"Successfully emailed to " + employee.name + "(" + employee.email + ")."}
+	context = {'employees':employees, 'output':"Successfully emailed to " + employee.name + "."}
+	return render(request, 'main/index.html', context)
+
+def getlink(request, id):
+	employee = Employee.objects.get(id=id)
+	# Send emails to each employees
+	baseurl = "localhost:8000/user/"
+	text = "Dear " + employee.name + ",\n\nhere is the requested link to your coffee profile:\n\n" + baseurl + employee.qr + "\nLast updated:" + str(employee.updated_at) + "\n\nThanks a lot and have a great day!"
+
+	send_mail(
+		"ACS Coffee | Current debth",
+		text,
+		"lukas.lenz@eonerc.rwth-aachen.de",
+		[employee.email],
+		fail_silently=False,)
+
+	employees = Employee.objects.all()
+	context = {'employees':employees, 'output':"Successfully requested link for " + employee.name + "."}
 	return render(request, 'main/index.html', context)
 
 def calcdebth(request):
@@ -87,7 +108,7 @@ def calcdebth(request):
 		employee.coffees = 0
 		employee.save()
 
-	context = {'employees':employees, 'output':"Successfully added coffees to debth."}
+	context = {'employees':employees, 'output':"Successfully added coffees to debt."}
 	return render(request, 'main/index.html', context)
 
 def broadcast(request):
@@ -96,7 +117,7 @@ def broadcast(request):
 		# Send emails to each employees
 		send_mail(
     	"ACS Coffee | Current debth",
-    	"Dear " + employee.name + ",\n\nplease pay your outstanding coffee bill.\n\nDebth: " + str(employee.debth) + "€\nLast updated:" + str(employee.updated_at) + "\n\nThanks a lot and have a great day!",
+    	"Dear " + employee.name + ",\n\nplease pay your outstanding coffee bill.\n\nDebt: " + str(employee.debth) + "€\nLast updated:" + str(employee.updated_at) + "\n\nThanks a lot and have a great day!",
     	"lukas.lenz@eonerc.rwth-aachen.de",
     	[employee.email],
     	fail_silently=False,
@@ -104,18 +125,21 @@ def broadcast(request):
 	context = {'employees':employees, 'output':"Successfully broadcasted to employees."}
 	return render(request, 'main/index.html', context)
 
-def user(request, id):
-	employee = Employee.objects.get(id=id)
-	context = {'employee':employee}
+def user(request, slug):
+	employee = Employee.objects.get(qr=slug)
+	coffees = employee.coffee_set.all()
+	context = {'employee':employee, 'coffees':coffees}
 	return render(request, 'main/user.html', context)
 
 def add(request, slug):
 	employee = Employee.objects.get(qr=slug)
-	print(employee.name)
-	print(employee.qr)
-	print(employee.coffees)
 	employee.coffees = employee.coffees + 1
 	employee.save()
+	coffee = Coffee(user=employee)
+	coffee.save()
 
-	context = {'employee':employee}
+	#get all coffees
+	coffees = employee.coffee_set.all()
+
+	context = {'employee':employee, 'coffees':coffees}
 	return render(request, 'main/user.html', context)

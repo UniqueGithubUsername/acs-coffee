@@ -1,11 +1,14 @@
 /* color scheme */
 :root {
-  --background: #f2f2f2;
+  --background: #222;
+  --background2: #111214;
   --primary: #FFDE03;
   --secondary: #0336FF;
-  --border: #d8d8d8;
+  --border: #424242;
   --black: #212121;
   --black1: #828282;
+  --white: #fff;
+  --white1: #d2d2d2;
   --c1: #987654;
   --c2: #987654;
   --c3: #a28465;
@@ -37,18 +40,18 @@ input:focus {
 .acs-nav {
 	overflow: hidden;
 	padding: 0 32px;
-	background-color: var(--background);
+	background-color: var(--background2);
 }
 
 .acs-link {
 	font-weight: bold;
-	color: var(--black1);
+	color: var(--white1);
 	padding: 16px;
 	font-size: 11px;
 }
 
 .acs-link:hover {
-	color: var(--black);
+	color: var(--white);
 }
 
 .acs-logo {
@@ -56,26 +59,35 @@ input:focus {
 }
 
 .acs-content {
-	padding: 32px 32px;
-	background-color: var(--background);
-	text-align: center;
+	padding: 16px;
+	background-color: var(--background2);
 }
 
 .acs-footer {
-	background-color: var(--background);
+	background-color: var(--background2);
 	padding: 32px;
 	text-align: center;
 }
 
 .acs-form {
-	background-color: white;
-	border-radius: 16px;
+	display: inline-block;
+	background-color: var(--background);
+	padding: 32px;
+}
+
+form label {
+	color: var(--white1);
 }
 
 /* Main content */
 .acs-title {
+	color: var(--white1);
 	font-weight: bold;
 	border-bottom: 1px solid var(--border);
+}
+
+.acs-list {
+	color: var(--white);
 }
 
 .acs-list:not(:last-child) {
@@ -84,16 +96,26 @@ input:focus {
 
 /* Fullsize Card */
 .acs-fullsize {
+	padding: 16px;
 	text-align: center;
-	padding: 32px 32px;
-	min-height: 80vh;
 }
 
 .acs-card {
-	display: inline-block;
-	border-radius: 16px;
-	text-align: center;
-	background-color: var(--background);
+	background-color: var(--background2);
+	padding: 16px;
+	border: 1px solid var(--border);
+}
+
+.acs-card-title {
+	color: var(--white);
+}
+
+.acs-card-label {
+	color: var(--white1);
+}
+
+.acs-card-text {
+	color: var(--white);
 }
 
 .acs-card-logo {
@@ -101,35 +123,20 @@ input:focus {
 	height: 300px;
 }
 
-.acs-card-low {
-	padding: 32px;
-}
-
-.acs-text-high {
-	font-weight: bold;
-	font-size: 21px;
-	color: var(--primary);
-}
-
-.acs-text-low {
+.acs-button {
+	border: none;
+	cursor: pointer;
 	font-weight: bold;
 	font-size: 11px;
-	color: var(--black1);
-}
-
-.acs-button {
-	cursor: pointer;
-	border: none;
-	font-weight: bold;
-	font-size: 13px;
 	display: inline-block;
-	background-color: var(--black);
-	border-radius: 8px;
+	background-color: var(--white);
+	border-radius: 4px;
 	padding: 8px 16px;
-	color: var(--black1);
+	color: var(--black);
 }
 
 .acs-button:hover {
+	background-color: var(--white1);
 	color: var(--black);
 }
 
