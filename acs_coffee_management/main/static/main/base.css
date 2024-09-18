@@ -1,8 +1,11 @@
 /* color scheme */
 :root {
-  --background: #222;
-  --background2: #111214;
-  --primary: #FFDE03;
+  --background: #212529;
+  --background2: #2b2f33;
+  --background3: #222222;
+  --primary: #e53632;
+  --primary2: #e53289;
+  --primary3: #e58e32;
   --secondary: #0336FF;
   --border: #424242;
   --black: #212121;
@@ -40,7 +43,7 @@ input:focus {
 .acs-nav {
 	overflow: hidden;
 	padding: 0 32px;
-	background-color: var(--background2);
+	background-color: var(--background);
 }
 
 .acs-link {
@@ -55,27 +58,29 @@ input:focus {
 }
 
 .acs-logo {
-	height: 32px;
+	height: 16px;
 }
 
 .acs-content {
 	padding: 16px;
-	background-color: var(--background2);
+	background-color: var(--background);
 }
 
 .acs-footer {
-	background-color: var(--background2);
+	background-color: var(--background);
 	padding: 32px;
 	text-align: center;
 }
 
 .acs-form {
+	border-radius: 8px;
 	display: inline-block;
-	background-color: var(--background);
+	background-color: var(--background2);
 	padding: 32px;
 }
 
-form label {
+form label, input {
+	display: block;
 	color: var(--white1);
 }
 
@@ -101,9 +106,10 @@ form label {
 }
 
 .acs-card {
+	border-radius: 8px;
 	background-color: var(--background2);
 	padding: 16px;
-	border: 1px solid var(--border);
+	margin-bottom: 16px;
 }
 
 .acs-card-title {
@@ -161,4 +167,9 @@ form label {
 
 .m {
 	width: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  /* mobile settings: */
+  .m {width: 100% !important;}
 }

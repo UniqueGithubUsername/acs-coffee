@@ -12,7 +12,9 @@ ACS Coffee | Login
 {% block content %}
 <div class="acs-fullsize">
 	<div class="acs-form">
-		<img class="osd-logo" src="{% static 'main/eonerc_logo.png' %}">
+		<img class="acs-logo" src="{% static 'main/eonerc_logo.png' %}">
+		<br>
+		<br>
   		<form method="post">
 			{% csrf_token %}
   			{{ form.as_p }}

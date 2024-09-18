@@ -19,19 +19,34 @@ ACS Coffee | {{employee.name}}
 		<p class="acs-card-text">{{employee.debth}} €</p>
 		<p class="acs-card-label">New cups:</p>
 		<p class="acs-card-text">{{employee.coffees}}</p>
-
 		<p><a class="acs-button" href="{% url 'add' employee.qr %}"><i class="fa fa-plus" aria-hidden="true"></i> Add a cup</a></p>
 		<p><a class="acs-button" target="_blank" href="https://www.paypal.com/de/home/"><i class="fa fa-paypal" aria-hidden="true"></i> Link to Paypal</a></p>
+		<p><a class="acs-button" href="{% url 'index' %}"><i class="fa fa-paypal" aria-hidden="true"></i> Back</a></p>
 
 		<br>
 
 		<div class="acs-title">
-			<p>Cups added:</p>
+			<p>Cups added today:</p>
 		</div>
 		{% for coffee in coffees %}
+		{% if coffee.today %}
 		<div class="acs-list">
 			<p>Cup added @ {{coffee.date}}</p>
 		</div>
+		{% endif %}
+		{% endfor %}
+
+		<br>
+
+		<div class="acs-title">
+			<p>Older cups:</p>
+		</div>
+		{% for coffee in coffees %}
+		{% if not coffee.today %}
+		<div class="acs-list">
+			<p>Cup added @ {{coffee.date}}</p>
+		</div>
+		{% endif %}
 		{% endfor %}
 	</div>
 {% endblock %}

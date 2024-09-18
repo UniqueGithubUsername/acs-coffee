@@ -14,7 +14,7 @@ class Employee(models.Model):
 		ordering = ["name"]
 
 	def __str__(self):
-		return self.name + " : " + str(self.debth)
+		return self.name + " (" + self.email + ") " + str(self.debth)
 
 class Coffee(models.Model):
 	user = models.ForeignKey(Employee, on_delete=models.CASCADE)
@@ -22,7 +22,10 @@ class Coffee(models.Model):
 
 	@property
 	def today(self):
-		return timezone.now() >= self.date
+		return timezone.now().date() == self.date.date()
 
 	class Meta:
 		ordering = ["-date"]
+
+	def __str__(self):
+		return "Cup added to " + self.user.name + " @ " + str(self.date)

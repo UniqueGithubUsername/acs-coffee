@@ -18,11 +18,34 @@ ACS Coffee | Home
 <br>
 {% endif %}
 <div class="acs-card">
+	<h2 class="acs-card-title">Coffee Consumption</h2>
+	<div class="acs-row">
+		<div class="acs-col s">
+			<p class="acs-card-label">Today:</p>
+			<p class="acs-card-text">{{today}}</p>
+		</div>
+		<div class="acs-col s">
+			<p class="acs-card-label">Last 7 days:</p>
+			<p class="acs-card-text">{{week}}</p>
+		</div>
+		<div class="acs-col s">
+			<p class="acs-card-label">Last 30 days:</p>
+			<p class="acs-card-text">{{month}}</p>
+		</div>
+		<div class="acs-col s">
+			<p class="acs-card-label">Total:</p>
+			<p class="acs-card-text">{{total}}</p>
+		</div>
+	</div>
+</div>
+
+<div class="acs-card">
+	<h2 class="acs-card-title">Coffee List</h2>
 <div class="acs-title">
 <div class="acs-row">
 	<div class="acs-col s"><p>Name</p></div>
-	<div class="acs-col s"><p>Debt</p></div>
-	<div class="acs-col s"><p>Coffees</p></div>
+	<div class="acs-col s"><p>Old debt</p></div>
+	<div class="acs-col s"><p>New coffees</p></div>
 	<div class="acs-col s"><p>Actions</p></div>
 </div>
 </div>

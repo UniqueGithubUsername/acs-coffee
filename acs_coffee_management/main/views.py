@@ -14,7 +14,14 @@ from .forms import EmployeeForm
 
 def index(request):
 	employees = Employee.objects.all()
-	context = {'employees':employees}
+	current_time = datetime.datetime.now()
+
+	coffees_today =Coffee.objects.filter(date__year=current_time.year,date__month=current_time.month,date__day=current_time.day).count() 
+	coffees_week = Coffee.objects.filter(date__range=[current_time-datetime.timedelta(days=7), current_time]).count()
+	coffees_month = Coffee.objects.filter(date__range=[current_time-datetime.timedelta(days=30), current_time]).count()
+	coffees_total = Coffee.objects.all().count()
+
+	context = {'employees':employees,'today':coffees_today,'week':coffees_week,'month':coffees_month,'total':coffees_total}
 	return render(request, 'main/index.html', context)
 
 def faq(request):
@@ -33,7 +40,8 @@ def importxlsx(request):
 		obj, created = Employee.objects.update_or_create(name=row['name'], email=row['email'], defaults={'qr':row['qr'], 'debth':row['debth'], 'coffees':row['coffees']})
 
 	employees = Employee.objects.all()
-	context = {'employees':employees, 'output':"Successfully imported employees_input.xlsx"}
+	output = "Successfully imported employees_input.xlsx"
+	context = {'employees':employees, 'output':output}
 	return render(request, 'main/index.html', context)
 
 def export(request):
@@ -43,7 +51,8 @@ def export(request):
 	# Remove timezone from columns
 	df['updated_at'] = df['updated_at'].dt.tz_localize(None)
 	df.to_excel(str(datetime.date.today()) + "_employees.xlsx")
-	context = {'employees':employees, 'output':"Successfully exported " + str(datetime.date.today()) + "_employees.xlsx"}
+	output = "Successfully exported " + str(datetime.date.today()) + "_employees.xlsx"
+	context = {'employees':employees, 'output':output}
 	return render(request, 'main/index.html', context)
 
 def newemployee(request):
@@ -58,7 +67,8 @@ def newemployee(request):
             # redirect to a new URL:
             form.save()
             employees = Employee.objects.all()
-            context = {'employees':employees, 'output':"Successfully added new employee: "}
+            output = "Successfully added new employee."
+            context = {'employees':employees, 'output':output}
             return render(request, 'main/index.html', context)
 
     # if a GET (or any other method) we'll create a blank form
@@ -70,16 +80,18 @@ def newemployee(request):
 
 def mailtoemployee(request, id):
 	employee = Employee.objects.get(id=id)
-	# Send emails to each employees
+	# Send email to one employee
+	text = "Dear " + employee.name + ",\n\nplease pay your outstanding coffee bill.\n\nDebth: " + str(employee.debth) + "€\nLast updated:" + str(employee.updated_at) + "\n\nThanks a lot and have a great day!"
 	send_mail(
 		"ACS Coffee | Current debth",
-		"Dear " + employee.name + ",\n\nplease pay your outstanding coffee bill.\n\nDebth: " + str(employee.debth) + "€\nLast updated:" + str(employee.updated_at) + "\n\nThanks a lot and have a great day!",
+		text,
 		"lukas.lenz@eonerc.rwth-aachen.de",
 		[employee.email],
 		fail_silently=False,)
 
 	employees = Employee.objects.all()
-	context = {'employees':employees, 'output':"Successfully emailed to " + employee.name + "."}
+	output = "Successfully emailed to " + employee.name + "."
+	context = {'employees':employees, 'output':output}
 	return render(request, 'main/index.html', context)
 
 def getlink(request, id):
@@ -96,7 +108,14 @@ def getlink(request, id):
 		fail_silently=False,)
 
 	employees = Employee.objects.all()
-	context = {'employees':employees, 'output':"Successfully requested link for " + employee.name + "."}
+	current_time = datetime.datetime.now()
+
+	coffees_today =Coffee.objects.filter(date__year=current_time.year,date__month=current_time.month,date__day=current_time.day).count() 
+	coffees_week = Coffee.objects.filter(date__range=[current_time-datetime.timedelta(days=7), current_time]).count()
+	coffees_month = Coffee.objects.filter(date__range=[current_time-datetime.timedelta(days=30), current_time]).count()
+	coffees_total = Coffee.objects.all().count()
+	output = "Successfully requested link for " + employee.name + "."
+	context = {'employees':employees,'today':coffees_today,'week':coffees_week,'month':coffees_month,'total':coffees_total,'output':output}
 	return render(request, 'main/index.html', context)
 
 def calcdebth(request):
@@ -108,16 +127,18 @@ def calcdebth(request):
 		employee.coffees = 0
 		employee.save()
 
-	context = {'employees':employees, 'output':"Successfully added coffees to debt."}
+	output = "Successfully added coffees to debt."
+	context = {'employees':employees, 'output':output}
 	return render(request, 'main/index.html', context)
 
 def broadcast(request):
 	employees = Employee.objects.all()
 	for employee in employees:
 		# Send emails to each employees
+		text = "Dear " + employee.name + ",\n\nplease pay your outstanding coffee bill.\n\nDebt: " + str(employee.debth) + "€\nLast updated:" + str(employee.updated_at) + "\n\nThanks a lot and have a great day!"
 		send_mail(
     	"ACS Coffee | Current debth",
-    	"Dear " + employee.name + ",\n\nplease pay your outstanding coffee bill.\n\nDebt: " + str(employee.debth) + "€\nLast updated:" + str(employee.updated_at) + "\n\nThanks a lot and have a great day!",
+    	text,
     	"lukas.lenz@eonerc.rwth-aachen.de",
     	[employee.email],
     	fail_silently=False,
