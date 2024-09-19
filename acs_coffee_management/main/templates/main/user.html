@@ -10,9 +10,17 @@ ACS Coffee | {{employee.name}}
 {% endblock %}
 
 {% block content %}
+{% if output != None %}
+<div class="acs-fullsize">
+	<div class="acs-form">
+		<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
+	</div>
+</div>
+<br>
+<br>
+{% endif %}
 	<div class="acs-card">
-		<p class="acs-card-label">Name:</p>
-		<h1 class="acs-card-title">{{employee.name}}</h1>
+		<h2 class="acs-card-title">{{employee.name}}</h2>
 		<p class="acs-card-label">Email:</p>
 		<p class="acs-card-text">{{employee.email}}</p>
 		<p class="acs-card-label">Old state:</p>
@@ -21,7 +29,7 @@ ACS Coffee | {{employee.name}}
 		<p class="acs-card-text">{{employee.coffees}}</p>
 		<p><a class="acs-button" href="{% url 'add' employee.qr %}"><i class="fa fa-plus" aria-hidden="true"></i> Add a cup</a></p>
 		<p><a class="acs-button" target="_blank" href="https://www.paypal.com/de/home/"><i class="fa fa-paypal" aria-hidden="true"></i> Link to Paypal</a></p>
-		<p><a class="acs-button" href="{% url 'index' %}"><i class="fa fa-paypal" aria-hidden="true"></i> Back</a></p>
+		<p><a class="acs-button" href="{% url 'index' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></p>
 
 		<br>
 

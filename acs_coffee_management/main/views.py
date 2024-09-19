@@ -29,15 +29,15 @@ def faq(request):
 	return render(request, 'main/faq.html', context)
 
 def importxlsx(request):
-	df = pd.read_excel('employees_input.xlsx')
+	df = pd.read_excel('employees_input2.xlsx')
 	
 	for index, row in df.iterrows():
 		print(row['name'])
 		print(row['qr'])
 		print(row['email'])
-		print(row['debth'])
+		print(row['debt'])
 		print(row['coffees'])
-		obj, created = Employee.objects.update_or_create(name=row['name'], email=row['email'], defaults={'qr':row['qr'], 'debth':row['debth'], 'coffees':row['coffees']})
+		obj, created = Employee.objects.update_or_create(name=row['name'], email=row['email'], defaults={'qr':row['qr'], 'debth':row['debt'], 'coffees':row['coffees']})
 
 	employees = Employee.objects.all()
 	output = "Successfully imported employees_input.xlsx"
@@ -47,10 +47,17 @@ def importxlsx(request):
 def export(request):
 	employees = Employee.objects.all()
 	# Save as .csv
-	df = pd.DataFrame(o.__dict__ for o in employees)
+	#df = pd.DataFrame(o.__dict__ for o in employees)
 	# Remove timezone from columns
-	df['updated_at'] = df['updated_at'].dt.tz_localize(None)
+	#df['updated_at'] = df['updated_at'].dt.tz_localize(None)
+	#df.to_excel(str(datetime.date.today()) + "_employees.xlsx")
+
+	employees_export = Employee.objects.values_list('name','qr','email','debth','coffees')
+	print(employees_export)
+	df = pd.DataFrame(data=employees_export, columns=['name','qr','email','debt','coffees'])
 	df.to_excel(str(datetime.date.today()) + "_employees.xlsx")
+
+
 	output = "Successfully exported " + str(datetime.date.today()) + "_employees.xlsx"
 	context = {'employees':employees, 'output':output}
 	return render(request, 'main/index.html', context)
@@ -158,9 +165,9 @@ def add(request, slug):
 	employee.save()
 	coffee = Coffee(user=employee)
 	coffee.save()
-
+	date = coffee.date
 	#get all coffees
 	coffees = employee.coffee_set.all()
-
-	context = {'employee':employee, 'coffees':coffees}
+	output = "Cup added @ " + str(date.day) + "." + str(date.month) + "." + str(date.year) + ": " + str(date.hour) + ":" + str(date.minute)
+	context = {'employee':employee, 'coffees':coffees, 'output':output}
 	return render(request, 'main/user.html', context)

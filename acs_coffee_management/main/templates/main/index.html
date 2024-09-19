@@ -10,36 +10,50 @@ ACS Coffee | Home
 {% endblock %}
 
 {% block content %}
+<div class="acs-card" style="background-color: var(--white);">
+    <h1 class="acs-card-title">ACS Coffee</h1>
+    <p><a class="acs-button" href="{% url 'faq' %}">Get started</a></p>
+    <p><a class="acs-button" href="{% url 'newemployee' %}">Add person</a></p>
+  </div>
 {% if output != None %}
 <div class="acs-fullsize">
-	<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
+	<div class="acs-form">
+		<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
+	</div>
 </div>
 <br>
 <br>
 {% endif %}
-<div class="acs-card">
-	<h2 class="acs-card-title">Coffee Consumption</h2>
+<div class="acs-car">
 	<div class="acs-row">
 		<div class="acs-col s">
+			<div class="acs-card" style="background-color: var(--white1);">
 			<p class="acs-card-label">Today:</p>
 			<p class="acs-card-text">{{today}}</p>
+			</div>
 		</div>
 		<div class="acs-col s">
+			<div class="acs-card" style="background-color: var(--white2);">
 			<p class="acs-card-label">Last 7 days:</p>
 			<p class="acs-card-text">{{week}}</p>
+			</div>
 		</div>
 		<div class="acs-col s">
+			<div class="acs-card" style="background-color: var(--black1); color: white">
 			<p class="acs-card-label">Last 30 days:</p>
 			<p class="acs-card-text">{{month}}</p>
+			</div>
 		</div>
 		<div class="acs-col s">
+			<div class="acs-card" style="background-color: var(--black); color: white">
 			<p class="acs-card-label">Total:</p>
 			<p class="acs-card-text">{{total}}</p>
+			</div>
 		</div>
 	</div>
 </div>
 
-<div class="acs-card">
+<div class="acs-card" style="background-color: var(--white1);">
 	<h2 class="acs-card-title">Coffee List</h2>
 <div class="acs-title">
 <div class="acs-row">
@@ -58,11 +72,11 @@ ACS Coffee | Home
 	<div class="acs-col s"><p>{{employee.coffees}} cup/s</p></div>
 	<div class="acs-col s">
 		{% if user.is_authenticated %}
-		<p><a class="acs-button" href="{% url 'mail' employee.id %}"><i class="fa fa-envelope" aria-hidden="true"></i> Mail to user</a>
+		<p><a class="acs-button" href="{% url 'mail' employee.id %}"><i class="fa fa-envelope" aria-hidden="true"></i> Mail</a>
 		</p>
-		<p><a class="acs-button" href="{% url 'user' employee.qr %}"><i class="fa fa-user" aria-hidden="true"></i> See user</a></p>
+		<p><a class="acs-button" href="{% url 'user' employee.qr %}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></p>
 		{% endif %}
-		<p><a class="acs-button" href="{% url 'getlink' employee.id %}"><i class="fa fa-question" aria-hidden="true"></i> Request link</a></p>
+		<p><a class="acs-button" href="{% url 'getlink' employee.id %}">Get link</a></p>
 	</div>
 </div>
 </div>
