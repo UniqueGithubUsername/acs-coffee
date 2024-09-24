@@ -1,10 +1,10 @@
 /* color scheme */
 :root {
-  --background: #212529;
+  --background: #f5f5f9;
   --background2: #2b2f33;
   --background3: #222222;
   --primary: #e53632;
-  --primary2: #e53289;
+  --primary2: #06c;
   --primary3: #e58e32;
   --secondary: #0336FF;
   --border: #d2d2d2;
@@ -49,16 +49,16 @@ h1 {
 .acs-nav {
 	overflow: hidden;
 	padding: 8px 16px;
-	background-color: var(--black);
+	background-color: var(--white);
 }
 
 .acs-link {
-	color: var(--white);
+	color: var(--black);
 	padding: 8px 16px;
 }
 
 .acs-link:hover {
-	color: var(--primary);
+	color: var(--black2);
 }
 
 .acs-logo {
@@ -105,9 +105,11 @@ form input {
 
 /* Main content */
 .acs-title {
+	border-radius: 4px;
 	font-weight: bold;
 	color: var(--black);
-	border-bottom: 1px solid var(--border);
+	margin-bottom: 4px;
+	background-color: var(--white2);
 }
 
 .acs-secondary {
@@ -116,11 +118,10 @@ form input {
 }
 
 .acs-list {
+	border-radius: 4px;
+	background-color: var(--white1);
 	color: var(--black);
-}
-
-.acs-list:not(:last-child) {
-	border-bottom: 1px solid var(--border);
+	margin-bottom: 4px;
 }
 
 /* Fullsize Card */
@@ -160,14 +161,14 @@ form input {
 	border: 1px solid var(--black);
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--black);
+	background-color: var(--white);
 	padding: 8px 16px;
-	color: var(--white);
+	color: var(--black);
 }
 
 .acs-button:hover {
-	background-color: var(--white);
-	color: var(--black);
+	background-color: var(--black);
+	color: var(--white);
 }
 
 /* Rows and Cols */

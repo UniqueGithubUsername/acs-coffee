@@ -34,12 +34,12 @@ ACS Coffee | {{employee.name}}
 		<br>
 
 		<div class="acs-title">
-			<p>Cups added today:</p>
+			<p class="acs-card">Cups added today:</p>
 		</div>
 		{% for coffee in coffees %}
 		{% if coffee.today %}
 		<div class="acs-list">
-			<p>Cup added @ {{coffee.date}}</p>
+			<p class="acs-card">Cup added @ {{coffee.date}}</p>
 		</div>
 		{% endif %}
 		{% endfor %}
@@ -47,12 +47,12 @@ ACS Coffee | {{employee.name}}
 		<br>
 
 		<div class="acs-title">
-			<p>Older cups:</p>
+			<p class="acs-card">Older cups:</p>
 		</div>
 		{% for coffee in coffees %}
 		{% if not coffee.today %}
 		<div class="acs-list">
-			<p>Cup added @ {{coffee.date}}</p>
+			<p class="acs-card">Cup added @ {{coffee.date}}</p>
 		</div>
 		{% endif %}
 		{% endfor %}

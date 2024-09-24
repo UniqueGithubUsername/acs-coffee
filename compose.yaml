@@ -1,0 +1,5 @@
+services: 
+  web: 
+    build: acs_coffee_management 
+    ports: 
+      - '8000:8000'
