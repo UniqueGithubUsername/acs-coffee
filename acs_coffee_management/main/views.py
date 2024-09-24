@@ -10,7 +10,7 @@ from django.core.mail import send_mail, send_mass_mail
 from django.contrib.auth.decorators import login_required
 
 from .models import Employee, Coffee
-from .forms import EmployeeForm
+from .forms import ChangeEmployeeForm, EmployeeForm
 
 baseurl = "http://137.226.248.61:31387/user/"
 addurl = "http://137.226.248.61:31387/add/"
@@ -85,6 +85,30 @@ def newemployee(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = EmployeeForm()
+
+    return render(request, "registration/login.html", {"form": form})
+
+def editprofile(request , id):
+	# if this is a POST request we need to process the form data
+    employee = Employee.objects.get(id=id)
+
+    if request.method == "POST":
+        # create a form instance and populate it with data from the request:
+        form = ChangeEmployeeForm(request.POST, instance=employee)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            form.save()
+            output = "Successfully edited profile."
+            coffees = employee.coffee_set.all()
+            context = {'employee':employee, 'coffees':coffees, 'output':output}
+            return render(request, 'main/user.html', context)
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = ChangeEmployeeForm(instance=employee)
 
     return render(request, "registration/login.html", {"form": form})
 

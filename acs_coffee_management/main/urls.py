@@ -13,5 +13,6 @@ urlpatterns = [
     path('getlink/<int:id>', views.getlink, name='getlink'),
     path('add/<slug:slug>', views.add, name='add'),
     path('newemployee/', views.newemployee, name='newemployee'),
+    path('editprofile/<int:id>', views.editprofile, name='editprofile'),
     path('faq/', views.faq, name='faq')
 ]
