@@ -13,7 +13,7 @@ ACS Coffee
 <div class="acs-card">
     <p><a class="acs-button" href="{% url 'faq' %}">Get started</a></p>
     <p><a class="acs-button" href="{% url 'newemployee' %}">Add person</a></p>
-    <h5 class="acs-card-title">Price per cup: 0,30€</h5>
+    <h4 class="acs-card-label">Price per cup: 0,30€</h4>
 </div>
 {% if output != None %}
 <div class="acs-fullsize">
@@ -54,13 +54,12 @@ ACS Coffee
 </div>
 
 <div class="acs-card" style="background-color: var(--white);">
-	<h2 class="acs-card-title">Coffee List</h2>
 <div class="acs-title">
 <div class="acs-row">
-	<div class="acs-col s"><p>Name</p></div>
-	<div class="acs-col s"><p>Old debt</p></div>
-	<div class="acs-col s"><p>New coffees</p></div>
-	<div class="acs-col s"><p>Actions</p></div>
+	<div class="acs-col s"><p class="acs-card-label">Name</p></div>
+	<div class="acs-col s"><p class="acs-card-label">Old debt</p></div>
+	<div class="acs-col s"><p class="acs-card-label">New coffees</p></div>
+	<div class="acs-col s"><p class="acs-card-label">Actions</p></div>
 </div>
 </div>
 

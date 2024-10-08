@@ -150,7 +150,7 @@ def getlink(request, id):
 	coffees_week = Coffee.objects.filter(date__range=[current_time-datetime.timedelta(days=7), current_time]).count()
 	coffees_month = Coffee.objects.filter(date__range=[current_time-datetime.timedelta(days=30), current_time]).count()
 	coffees_total = Coffee.objects.all().count()
-	output = "Successfully requested link for " + employee.name + "."
+	output = "Successfully requested link for " + employee.name + ". Please check your email inbox."
 	context = {'employees':employees,'today':coffees_today,'week':coffees_week,'month':coffees_month,'total':coffees_total,'output':output}
 	return render(request, 'main/index.html', context)
 

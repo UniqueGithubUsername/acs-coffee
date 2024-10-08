@@ -9,7 +9,7 @@
   --secondary: #0336FF;
   --border: #d2d2d2;
   --black: #000;
-  --black1: #212121;
+  --black1: #424242;
   --black2: #a2a2a2;
   --white: #fff;
   --white1: #f2f2f2;
@@ -42,7 +42,6 @@ input:focus {
 
 h1 {
 	font-size: 60px;
-	font-weight: bold;
 }
 
 /* main nav */
@@ -53,12 +52,12 @@ h1 {
 }
 
 .acs-link {
-	color: var(--black);
+	color: var(--primary);
 	padding: 8px 16px;
 }
 
 .acs-link:hover {
-	color: var(--black2);
+	color: var(--black);
 }
 
 .acs-logo {
@@ -106,7 +105,6 @@ form input {
 /* Main content */
 .acs-title {
 	border-radius: 4px;
-	font-weight: bold;
 	color: var(--black);
 	margin-bottom: 4px;
 	background-color: var(--white2);
@@ -140,11 +138,10 @@ form input {
 .acs-card-title {
 	color: var(--black);
 	text-align: center;
-	font-weight: bold;
 }
 
 .acs-card-label {
-	font-weight: bold;
+	color: var(--black1);
 }
 
 .acs-card-text {

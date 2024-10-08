@@ -74,6 +74,18 @@ WSGI_APPLICATION = 'acs_coffee_management.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# PostgreSQL
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'OPTIONS': {
+#            'service': 'djangodb',
+#            'passfile': '.pgpass',
+#        },
+#    }
+#}
+
+# Default SQLite
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
