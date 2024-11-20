@@ -34,3 +34,7 @@ class ChangeEmployeeForm(ModelForm):
             'qr' : "Access link:",
             'email' : "Email:",
         }
+
+class ChooseEmployeeForm(forms.Form):
+    employee = forms.ModelChoiceField(label="",queryset=Employee.objects.all(),required=True)
+    verify = forms.CharField(label="",max_length=255,widget=forms.TextInput(attrs={'placeholder': 'Your email'}),required=True)

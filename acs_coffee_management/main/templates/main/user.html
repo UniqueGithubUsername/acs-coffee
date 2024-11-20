@@ -9,18 +9,8 @@ ACS Coffee | {{employee.name}}
 {% block nav %}
 {% endblock %}
 
-{% block content %}
-<img class="acs-logo2" src="{% static 'main/eoncoffee2.png' %}">
-{% if output != None %}
-<div class="acs-fullsize">
+{% block content2 %}
 	<div class="acs-form">
-		<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
-	</div>
-</div>
-<br>
-<br>
-{% endif %}
-	<div class="acs-card">
 		<h2 class="acs-card-title">{{employee.name}}</h2>
 		<p class="acs-card-label">Email:</p>
 		<p class="acs-card-text">{{employee.email}}</p>
@@ -28,35 +18,12 @@ ACS Coffee | {{employee.name}}
 		<p class="acs-card-text">{{employee.debth}} €</p>
 		<p class="acs-card-label">New cups:</p>
 		<p class="acs-card-text">{{employee.coffees}}</p>
+		{% if output != None %}
+		<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
+		{% endif %}
 		<p><a class="acs-button" href="{% url 'add' employee.qr %}"><i class="fa fa-plus" aria-hidden="true"></i> Add a cup</a></p>
 		<p><a class="acs-button" target="_blank" href="https://www.paypal.com/de/home/"><i class="fa fa-paypal" aria-hidden="true"></i> Link to Paypal</a></p>
 		<p><a class="acs-button" href="{% url 'editprofile' employee.id %}">Edit profile</a></p>
 		<p><a class="acs-button" href="{% url 'index' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></p>
-
-		<br>
-
-		<div class="acs-title">
-			<p class="acs-card">Cups added today:</p>
-		</div>
-		{% for coffee in coffees %}
-		{% if coffee.today %}
-		<div class="acs-list">
-			<p class="acs-card">Cup added @ {{coffee.date}}</p>
-		</div>
-		{% endif %}
-		{% endfor %}
-
-		<br>
-
-		<div class="acs-title">
-			<p class="acs-card">Older cups:</p>
-		</div>
-		{% for coffee in coffees %}
-		{% if not coffee.today %}
-		<div class="acs-list">
-			<p class="acs-card">Cup added @ {{coffee.date}}</p>
-		</div>
-		{% endif %}
-		{% endfor %}
 	</div>
 {% endblock %}

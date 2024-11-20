@@ -14,7 +14,7 @@ class Employee(models.Model):
 		ordering = ["name"]
 
 	def __str__(self):
-		return self.name + " (" + self.email + ") " + str(self.debth)
+		return self.name
 
 class Coffee(models.Model):
 	user = models.ForeignKey(Employee, on_delete=models.CASCADE)

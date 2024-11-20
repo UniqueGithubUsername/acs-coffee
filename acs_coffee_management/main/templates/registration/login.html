@@ -3,18 +3,18 @@
 {% load static %}
 
 {% block title %}
-ACS Coffee | Login
+ACS Coffee
 {% endblock %}
 
 {% block nav %}
 {% endblock %}
 
-{% block content %}
-<div class="acs-fullsize">
+{% block content2 %}
+<h2>Welcome to</h2>
+<h1>ACS Coffee</h1>
+
+<div class="acs-fullsiz">
 	<div class="acs-form">
-		<img class="acs-logo2" src="{% static 'main/eoncoffee2.png' %}">
-		<br>
-		<br>
   		<form method="post">
 			{% csrf_token %}
   			{{ form.as_p }}

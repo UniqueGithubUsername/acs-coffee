@@ -144,11 +144,11 @@ LOGOUT_REDIRECT_URL = "/"
 # Sending email
 # https://docs.djangoproject.com/en/4.2/topics/email/
 
-#EMAIL_HOST = "smarthost.rwth-aachen.de"
-#EMAIL_PORT = 25
+EMAIL_HOST = "smarthost-tls.rwth-aachen.de"
+EMAIL_PORT = 25
 
 # SMTP BACKEND is the default configuration inherited by django
-#EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 # This BACKEND just writes the emails that would be send to the standard output
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

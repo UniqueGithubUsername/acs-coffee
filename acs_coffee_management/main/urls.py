@@ -14,5 +14,6 @@ urlpatterns = [
     path('add/<slug:slug>', views.add, name='add'),
     path('newemployee/', views.newemployee, name='newemployee'),
     path('editprofile/<int:id>', views.editprofile, name='editprofile'),
-    path('faq/', views.faq, name='faq')
+    path('faq/', views.faq, name='faq'),
+    path('requestlink/', views.requestlink, name='requestlink')
 ]

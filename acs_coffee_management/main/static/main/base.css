@@ -29,7 +29,7 @@
 
 /* global settings */
 html {
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif !important;
 }
 
 a {
@@ -44,10 +44,14 @@ h1 {
 	font-size: 60px;
 }
 
+button, a {
+	font-size: 14px;
+}
+
 /* main nav */
 .acs-nav {
 	overflow: hidden;
-	padding: 8px 16px;
+	padding: 8px 10%;
 	background-color: var(--white);
 }
 
@@ -69,22 +73,22 @@ h1 {
 }
 
 .acs-content {
-	text-align: center;
-	padding: 32px 17%;
+	text-align: left;
+	padding: 32px 10%;
 	background-color: var(--white);
 }
 
 .acs-footer {
 	background-color: var(--white);
-	padding: 32px;
-	text-align: center;
+	padding: 32px 10%;
+	text-align: left;
 }
 
 .acs-form {
 	border: 1px solid var(--border);
 	border-radius: 8px;
 	display: inline-block;
-	background-color: var(--white);
+	background-color: var(--background);
 	padding: 32px;
 }
 
@@ -96,7 +100,13 @@ form label {
 form input {
 	display: inline-block;
 	box-sizing: border-box;
-	width: 100%;
+	padding: 12px 24px;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+}
+
+form select {
+	box-sizing: border-box;
 	padding: 12px 24px;
 	border: 1px solid var(--border);
 	border-radius: 4px;
@@ -124,6 +134,7 @@ form input {
 
 /* Fullsize Card */
 .acs-fullsize {
+	font-size: 10px;
 	padding: 16px;
 	text-align: center;
 }
@@ -137,7 +148,6 @@ form input {
 
 .acs-card-title {
 	color: var(--black);
-	text-align: center;
 }
 
 .acs-card-label {
@@ -155,7 +165,7 @@ form input {
 
 .acs-button {
 	border-radius: 8px;
-	border: 1px solid var(--black);
+	border: 1px solid var(--border);
 	cursor: pointer;
 	display: inline-block;
 	background-color: var(--white);
@@ -164,7 +174,7 @@ form input {
 }
 
 .acs-button:hover {
-	background-color: var(--black);
+	background-color: var(--background2);
 	color: var(--white);
 }
 
@@ -194,7 +204,8 @@ form input {
 @media screen and (max-width: 800px) {
   /* mobile settings: */
   .acs-content {
-  	padding: 4px;
+  	text-align: center;
+  	padding: 16px;
   }
   .m {width: 100% !important;}
 }

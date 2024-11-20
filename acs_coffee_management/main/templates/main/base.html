@@ -7,6 +7,11 @@
   <!-- Base CSS -->
   <link rel="stylesheet" type="text/css" href="{% static 'main/base.css' %}">
 
+  <!-- Google Roboto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
   <!-- Load an icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="shortcut icon" type="image/png" href="{% static 'main/favicon.png' %}"/>
@@ -16,15 +21,23 @@
 <div class="acs-nav" id="acs-nav">
   <a class="acs-link" href="{% url 'index' %}" style="float: left;"><img class="acs-logo" src="{% static 'main/eoncoffee.png' %}"></a>
   {% if user.is_authenticated %}
-  <a class="acs-link" href="{% url 'logout' %}" style="float: right;"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
-  <a class="acs-link" href="{% url 'export' %}" style="float: right;"><i class="fa fa-download" aria-hidden="true"></i></a>
-  <a class="acs-link" href="{% url 'importxlsx' %}" style="float: right;"><i class="fa fa-upload" aria-hidden="true"></i></a>
-  <a class="acs-link" href="{% url 'calcdebth' %}" style="float: right;"><i class="fa fa-coffee" aria-hidden="true"></i></a>
-  <a class="acs-link" href="{% url 'broadcast' %}" style="float: right;"><i class="fa fa-bullhorn" aria-hidden="true"></i></a>
+  <form id="logout-form" method="post" action="/admin/logout/">
+    {% csrf_token %}
+    <button class="acs-button" type="submit" style="float: right;"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+  </form>
+  <a class="acs-button" href="{% url 'export' %}" style="float: right;"><i class="fa fa-download" aria-hidden="true"></i></a>
+  <a class="acs-button" href="{% url 'importxlsx' %}" style="float: right;"><i class="fa fa-upload" aria-hidden="true"></i></a>
+  <a class="acs-button" href="{% url 'calcdebth' %}" style="float: right;"><i class="fa fa-coffee" aria-hidden="true"></i></a>
+  <a class="acs-button" href="{% url 'broadcast' %}" style="float: right;"><i class="fa fa-bullhorn" aria-hidden="true"></i></a>
   {% else %}
-  <a class="acs-link" href="{% url 'login' %}" style="float: right;"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+  <a class="acs-button" href="{% url 'login' %}" style="float: right;"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
   {% endif %}
   {% block nav %}
+  {% endblock %}
+</div>
+
+<div class="acs-content">
+  {% block content2 %}
   {% endblock %}
 </div>
 

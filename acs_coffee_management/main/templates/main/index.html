@@ -9,52 +9,38 @@ ACS Coffee
 {% block nav %}
 {% endblock %}
 
-{% block content %}
-<img class="acs-logo2" src="{% static 'main/eoncoffee2.png' %}">
-<div class="acs-card">
-    <p><a class="acs-button" href="{% url 'faq' %}">Get started</a></p>
-    <p><a class="acs-button" href="{% url 'newemployee' %}">Add person</a></p>
-    <h4 class="acs-card-label">Price per cup: 0,30€</h4>
-</div>
-{% if output != None %}
-<div class="acs-fullsize">
+{% block content2 %}
+<h2>Welcome to</h2>
+<h1>ACS Coffee</h1>
+<div class="acs-row">
+	<div class="acs-col m">
+<div class="acs-">
 	<div class="acs-form">
-		<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
+		{% if output != None %}
+		<h6>{{output}}</h6>
+		{% endif %}
+		<p>Request your access link:</p>
+  		<form action="{% url 'index' %}" method="post">
+			{% csrf_token %}
+  			{{ form.as_p }}
+  			<button class="acs-button" type="submit">Go</button>
+		</form>
 	</div>
 </div>
-<br>
-<br>
-{% endif %}
-<div class="acs-car">
-	<div class="acs-row">
-		<div class="acs-col s">
-			<div class="acs-card" style="background-color: var(--background);">
-			<p class="acs-card-label">Today:</p>
-			<p class="acs-card-text">{{today}}</p>
-			</div>
-		</div>
-		<div class="acs-col s">
-			<div class="acs-card" style="background-color: var(--background);">
-			<p class="acs-card-label">Last 7 days:</p>
-			<p class="acs-card-text">{{week}}</p>
-			</div>
-		</div>
-		<div class="acs-col s">
-			<div class="acs-card" style="background-color: var(--background);">
-			<p class="acs-card-label">Last 30 days:</p>
-			<p class="acs-card-text">{{month}}</p>
-			</div>
-		</div>
-		<div class="acs-col s">
-			<div class="acs-card" style="background-color: var(--background);">
-			<p class="acs-card-label">Total:</p>
-			<p class="acs-card-text">{{total}}</p>
-			</div>
-		</div>
 	</div>
-</div>
+	<div class="acs-col m"><p>How does it work?</p>
+<p><a class="acs-button" href="{% url 'faq' %}">Get started</a></p>
 
-<div class="acs-card" style="background-color: var(--white);">
+<p>Cant find yourself on the list?</p>
+<p><a class="acs-button" href="{% url 'newemployee' %}">Add person</a></p></div>
+</div>
+<br>
+<br>
+<p><a class="acs-button" href="mailto:lukas.lenz@eonerc.rwth-aachen.de">Contact administration</a></p>
+
+
+{% if user.is_authenticated %}
+<div class="acs-fullsize" style="background-color: var(--white);">
 <div class="acs-title">
 <div class="acs-row">
 	<div class="acs-col s"><p class="acs-card-label">Name</p></div>
@@ -65,17 +51,15 @@ ACS Coffee
 </div>
 
 {% for employee in employees %}
-<div class="acs-list">
+<div class="acs-fullsize">
 <div class="acs-row">
 	<div class="acs-col s"><p>{{employee.name}}</p></div>
 	<div class="acs-col s"><p>{{employee.debth}} €</p></div>
 	<div class="acs-col s"><p>{{employee.coffees}} cup/s</p></div>
 	<div class="acs-col s">
-		{% if user.is_authenticated %}
-		<p><a class="acs-button" href="{% url 'mail' employee.id %}"><i class="fa fa-envelope" aria-hidden="true"></i> Mail</a>
+		<p><a class="acs-button" href="{% url 'mail' employee.id %}">Mail</a>
 		</p>
-		<p><a class="acs-button" href="{% url 'user' employee.qr %}"><i class="fa fa-user" aria-hidden="true"></i> Profile</a></p>
-		{% endif %}
+		<p><a class="acs-button" href="{% url 'user' employee.qr %}">Profile</a></p>
 		{% if employee.email != 'nan' %}
 		<p><a class="acs-button" href="{% url 'getlink' employee.id %}" >Get link</a></p>
 		{% else %}
@@ -86,4 +70,5 @@ ACS Coffee
 </div>
 {% endfor %}
 </div>
+{% endif %}
 {% endblock %}
