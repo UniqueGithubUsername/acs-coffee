@@ -10,11 +10,10 @@ ACS Coffee
 {% endblock %}
 
 {% block content2 %}
-<h2>Welcome to</h2>
-<h1>ACS Coffee</h1>
-
 <div class="acs-fullsiz">
 	<div class="acs-form">
+		<img class="acs-logo" src="{% static 'main/eoncoffee.png' %}">
+		<h1>ACS Coffee</h1>
   		<form method="post">
 			{% csrf_token %}
   			{{ form.as_p }}

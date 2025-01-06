@@ -33,7 +33,7 @@ html {
 }
 
 p {
-	font-size: 18px;
+	font-size: 24px;
 }
 
 a {
@@ -56,7 +56,7 @@ button, a {
 .acs-nav {
 	overflow: hidden;
 	padding: 8px 10%;
-	background-color: var(--white);
+	background-color: var(--background);
 }
 
 .acs-link {
@@ -77,9 +77,9 @@ button, a {
 }
 
 .acs-content {
-	text-align: left;
+	text-align: center;
 	padding: 32px 10%;
-	background-color: var(--white);
+	background-color: var(--background);
 }
 
 .acs-footer {
@@ -89,14 +89,16 @@ button, a {
 }
 
 .acs-form {
-	border: 1px solid var(--border);
+	text-align: left;
+	border: 1px solid var(--white);
 	border-radius: 8px;
 	display: inline-block;
-	background-color: var(--background);
+	background-color: var(--white);
 	padding: 32px;
 }
 
 form label {
+	font-weight: bold;
 	width: 100%;	
 	color: var(--black1);
 }
@@ -155,6 +157,7 @@ form select {
 }
 
 .acs-card-label {
+	font-weight: bold;
 	color: var(--black1);
 }
 
@@ -168,13 +171,13 @@ form select {
 }
 
 .acs-button {
+	border: none;
 	border-radius: 8px;
-	border: 1px solid var(--border);
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--white);
+	background-color: var(--primary);
 	padding: 8px 16px;
-	color: var(--black);
+	color: var(--white);
 }
 
 .acs-button:hover {

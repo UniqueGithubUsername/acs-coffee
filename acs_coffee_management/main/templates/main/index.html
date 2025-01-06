@@ -10,33 +10,35 @@ ACS Coffee
 {% endblock %}
 
 {% block content2 %}
-<h2>Welcome to</h2>
-<h1>ACS Coffee</h1>
 <div class="acs-row">
-	<div class="acs-col m">
+	<div class="acs-co">
 <div class="acs-">
 	<div class="acs-form">
+		<img class="acs-logo2" src="{% static 'main/eoncoffee.png' %}">
+		<h1>ACS Coffee</h1>
+		<p>Request your access link and enter your email for verification.</p>
 		{% if output != None %}
-		<h6>{{output}}</h6>
+		<p style="color: var(--primary);">{{output}}</p>
 		{% endif %}
-		<p>Request your access link:</p>
   		<form action="{% url 'index' %}" method="post">
 			{% csrf_token %}
   			{{ form.as_p }}
   			<button class="acs-button" type="submit">Go</button>
+  			<div class="acs-co"><p>How does it work?</p>
+				<p><a class="acs-button" href="{% url 'faq' %}">Get started</a></p>
+
+				<p>Cant find yourself on the list?</p>
+				<p><a class="acs-button" href="{% url 'newemployee' %}">Add person</a></p>
+
+				<p><a class="acs-button" href="mailto:lukas.lenz@eonerc.rwth-aachen.de">Contact administration</a></p>
+			</div>
 		</form>
 	</div>
 </div>
 	</div>
-	<div class="acs-col m"><p>How does it work?</p>
-<p><a class="acs-button" href="{% url 'faq' %}">Get started</a></p>
-
-<p>Cant find yourself on the list?</p>
-<p><a class="acs-button" href="{% url 'newemployee' %}">Add person</a></p></div>
 </div>
 <br>
 <br>
-<p><a class="acs-button" href="mailto:lukas.lenz@eonerc.rwth-aachen.de">Contact administration</a></p>
 
 
 {% if user.is_authenticated %}
