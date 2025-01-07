@@ -19,11 +19,11 @@ ACS Coffee | {{employee.name}}
 		<p class="acs-card-label">New cups:</p>
 		<p class="acs-card-text">{{employee.coffees}}</p>
 		{% if output != None %}
-		<p style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</p>
+		<h4 style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</h4>
 		{% endif %}
-		<p><a class="acs-button" href="{% url 'add' employee.qr %}"><i class="fa fa-plus" aria-hidden="true"></i> Add a cup</a></p>
-		<p><a class="acs-button" target="_blank" href="https://www.paypal.com/de/home/"><i class="fa fa-paypal" aria-hidden="true"></i> Link to Paypal</a></p>
-		<p><a class="acs-button" href="{% url 'editprofile' employee.id %}">Edit profile</a></p>
-		<p><a class="acs-button" href="{% url 'index' %}"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</a></p>
+		<p><a class="acs-button" href="{% url 'add' employee.qr %}"><i class="fa fa-coffee" aria-hidden="true"></i> Add a cup</a></p>
+		<p><a class="acs-button2" target="_blank" href="https://www.paypal.com/de/home/"><i class="fa fa-paypal" aria-hidden="true"></i> Link to Paypal</a></p>
+		<p><a class="acs-button2" href="{% url 'editprofile' employee.id %}"><i class="fa fa-cog" aria-hidden="true"></i> Edit profile</a></p>
+		<p><a class="acs-button2" href="{% url 'index' %}"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a></p>
 	</div>
 {% endblock %}

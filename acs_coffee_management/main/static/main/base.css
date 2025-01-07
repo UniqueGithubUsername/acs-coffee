@@ -56,7 +56,7 @@ button, a {
 .acs-nav {
 	overflow: hidden;
 	padding: 8px 10%;
-	background-color: var(--background);
+	background-color: var(--background2);
 }
 
 .acs-link {
@@ -79,7 +79,7 @@ button, a {
 .acs-content {
 	text-align: center;
 	padding: 32px 10%;
-	background-color: var(--background);
+	background-color: var(--white);
 }
 
 .acs-footer {
@@ -89,12 +89,14 @@ button, a {
 }
 
 .acs-form {
-	text-align: left;
-	border: 1px solid var(--white);
-	border-radius: 8px;
-	display: inline-block;
+	text-align: center;
+	border-radius: 0px;
 	background-color: var(--white);
 	padding: 32px;
+}
+
+.acs-form-lower {
+	padding: 32px 0;
 }
 
 form label {
@@ -180,7 +182,23 @@ form select {
 	color: var(--white);
 }
 
+.acs-button2 {
+	border: 1px solid var(--primary);
+	border-radius: 8px;
+	cursor: pointer;
+	display: inline-block;
+	background-color: var(--white);
+	padding: 8px 16px;
+	color: var(--primary);
+}
+
 .acs-button:hover {
+	background-color: var(--background2);
+	color: var(--white);
+}
+
+.acs-button2:hover {
+	border: 1px solid var(--background2);
 	background-color: var(--background2);
 	color: var(--white);
 }

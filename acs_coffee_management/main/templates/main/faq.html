@@ -11,8 +11,8 @@ ACS Coffee | FAQ
 
 {% block content2 %}
 	<div class="acs-form">
-		<h1><img class="acs-logo2" src="{% static 'main/eoncoffee.png' %}"> ACS Coffee</h1>
-		<h2 class="acs-card-title">Get started</h2>
+		<img class="acs-logo2" src="{% static 'main/eoncoffee2.png' %}">
+		<h1 class="acs-card-title">Get started.</h1>
 		<br>
 		<p class="acs-card-label">How to add a cup of coffee to the list?</p>
 		<p class="acs-card-text">If using for the first time, you have to request the link to your profile through the <a href="{% url 'index' %}">Home page</a>.</p>
@@ -63,7 +63,7 @@ ACS Coffee | FAQ
 		<p class="acs-card-text">Please contact ACS Coffee Administration.</p>
 		<br>
 		<br>
-		<p><a class="acs-button" href="mailto:lukas.lenz@eonerc.rwth-aachen.de">Contact administration</a></p>
-		<p><a class="acs-button" href="{% url 'index' %}">Back</a></p>
+		<p><a class="acs-button" href="mailto:lukas.lenz@eonerc.rwth-aachen.de"><i class="fa fa-question" aria-hidden="true"></i> Contact administration</a></p>
+		<p><a class="acs-button" href="{% url 'index' %}"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a></p>
 	</div>
 {% endblock %}

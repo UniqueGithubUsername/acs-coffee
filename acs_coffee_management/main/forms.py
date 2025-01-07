@@ -8,16 +8,16 @@ class EmployeeForm(ModelForm):
         fields = "__all__"
         widgets = {
         	'name': forms.TextInput(attrs={'placeholder': 'Last name, First name'}),
-        	'qr': forms.TextInput(attrs={'placeholder': 'http://137.226.248.61:31387/user/<your-link>'}),
+        	'qr': forms.TextInput(attrs={'placeholder': 'Profile link suffix'}),
         	'email': forms.TextInput(attrs={'placeholder': 'Insert work email'}),
-        	'debth': forms.TextInput(attrs={'placeholder': 'e.g. 13.50'})
+        	'debth': forms.TextInput(attrs={'placeholder': 'Initial debth, e.g. 13.50'})
         }
         labels = {
-        	'name' : "Name:",
-        	'qr' : "Access link:",
-        	'email' : "Email:",
-        	'debth' : "Debt of account:",
-        	'coffees' : "New coffees:",
+        	'name' : "",
+        	'qr' : "",
+        	'email' : "",
+        	'debth' : "",
+        	'coffees' : "",
         }
 
 class ChangeEmployeeForm(ModelForm):
@@ -30,9 +30,9 @@ class ChangeEmployeeForm(ModelForm):
             'email': forms.TextInput(attrs={'placeholder': 'Insert work email'}),
         }
         labels = {
-            'name' : "Name:",
-            'qr' : "Access link:",
-            'email' : "Email:",
+            'name' : "",
+            'qr' : "",
+            'email' : "",
         }
 
 class ChooseEmployeeForm(forms.Form):

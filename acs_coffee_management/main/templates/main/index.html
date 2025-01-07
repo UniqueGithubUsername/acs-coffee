@@ -14,24 +14,29 @@ ACS Coffee
 	<div class="acs-co">
 <div class="acs-">
 	<div class="acs-form">
-		<img class="acs-logo2" src="{% static 'main/eoncoffee.png' %}">
-		<h1>ACS Coffee</h1>
-		<p>Request your access link and enter your email for verification.</p>
+		<img class="acs-logo2" src="{% static 'main/eoncoffee2.png' %}">
+		<h1>Welcome.</h1>
+		<h4>Request your access link and enter your email for verification.</h4>
+		<h4>Please only use non-capital letters for your email.</h4>
 		{% if output != None %}
-		<p style="color: var(--primary);">{{output}}</p>
+		<h4 style="color: var(--primary);">{{output}}</h4>
 		{% endif %}
   		<form action="{% url 'index' %}" method="post">
 			{% csrf_token %}
   			{{ form.as_p }}
-  			<button class="acs-button" type="submit">Go</button>
-  			<div class="acs-co"><p>How does it work?</p>
-				<p><a class="acs-button" href="{% url 'faq' %}">Get started</a></p>
+  			<button class="acs-button" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Go</button>
+  			<br>
+  			<div class="acs-form-lower">
+  				<h4>How does it work?</h4>
+				<p><a class="acs-button2" href="{% url 'faq' %}"><i class="fa fa-info" aria-hidden="true"></i> Get started</a></p>
 
-				<p>Cant find yourself on the list?</p>
-				<p><a class="acs-button" href="{% url 'newemployee' %}">Add person</a></p>
+				<h4>Cant find yourself on the list?</h4>
+				<p><a class="acs-button2" href="{% url 'newemployee' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Add person</a></p>
 
-				<p><a class="acs-button" href="mailto:lukas.lenz@eonerc.rwth-aachen.de">Contact administration</a></p>
+				<h4>Need additional help?</h4>
+				<p><a class="acs-button2" href="mailto:lukas.lenz@eonerc.rwth-aachen.de"><i class="fa fa-question" aria-hidden="true"></i> Contact administration</a></p>
 			</div>
+			<img class="acs-logo2" src="{% static 'main/eonlogol.png' %}">
 		</form>
 	</div>
 </div>
