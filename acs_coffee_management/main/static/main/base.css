@@ -1,10 +1,12 @@
 /* color scheme */
 :root {
-  --background: #f5f5f9;
-  --background2: #2b2f33;
-  --background3: #222222;
+  --background: #fff;
+  --background2: #f2f2f2;
+  --font: #121212;
+  --font-light: #343434;
+  --error: #cf6679;
   --primary: #e53632;
-  --primary2: #06c;
+  --primary2: #32e2e5;
   --primary3: #e58e32;
   --secondary: #0336FF;
   --border: #d2d2d2;
@@ -14,22 +16,12 @@
   --white: #fff;
   --white1: #f2f2f2;
   --white2: #e2e2e2;
-  --c1: #987654;
-  --c2: #987654;
-  --c3: #a28465;
-  --c4: #ad9176; 
-  --c5: #b79f87;
-  --c6: #c1ad98;
-  --c7: #ccbbaa;
-  --c8: #d6c8bb;
-  --c9: #e0d6cc;
-  --c10: #eae4dd;
-  --c11: #f5f1ee;
 }
 
 /* global settings */
 html {
   font-family: Roboto, Arial, sans-serif !important;
+  color: var(--font);
 }
 
 p {
@@ -52,11 +44,15 @@ button, a {
 	font-size: 16px;
 }
 
+.font-light {
+	color: var(--font-light);
+}
+
 /* main nav */
 .acs-nav {
 	overflow: hidden;
 	padding: 8px 10%;
-	background-color: var(--background2);
+	background-color: var(--background);
 }
 
 .acs-link {
@@ -79,23 +75,23 @@ button, a {
 .acs-content {
 	text-align: center;
 	padding: 32px 10%;
-	background-color: var(--white);
+	background-color: var(--background);
 }
 
 .acs-footer {
-	background-color: var(--white);
+	background-color: var(--background);
 	padding: 32px 10%;
 	text-align: left;
 }
 
 .acs-form {
-	text-align: center;
-	border-radius: 0px;
-	background-color: var(--white);
+	text-align: left;
+	background-color: var(--background);
 	padding: 32px;
 }
 
 .acs-form-lower {
+	background-color: var(--background);
 	padding: 32px 0;
 }
 
@@ -109,14 +105,14 @@ form input {
 	display: inline-block;
 	box-sizing: border-box;
 	padding: 12px 24px;
-	border: 1px solid var(--border);
+	border: 1px solid var(--black);
 	border-radius: 4px;
 }
 
 form select {
 	box-sizing: border-box;
 	padding: 12px 24px;
-	border: 1px solid var(--border);
+	border: 1px solid var(--black);
 	border-radius: 4px;
 }
 
@@ -125,7 +121,7 @@ form select {
 	border-radius: 4px;
 	color: var(--black);
 	margin-bottom: 4px;
-	background-color: var(--white2);
+	background-color: var(--background);
 }
 
 .acs-secondary {
@@ -135,8 +131,8 @@ form select {
 
 .acs-list {
 	border-radius: 4px;
-	background-color: var(--white1);
-	color: var(--black);
+	background-color: var(--background);
+	color: var(--white);
 	margin-bottom: 4px;
 }
 
@@ -160,10 +156,11 @@ form select {
 
 .acs-card-label {
 	font-weight: bold;
-	color: var(--black1);
+	color: var(--font);
 }
 
 .acs-card-text {
+	color: var(--font-light);
 	font-weight: normal;
 }
 
@@ -173,34 +170,38 @@ form select {
 }
 
 .acs-button {
-	border: none;
+	border: 1px solid var(--black);
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--primary);
+	background-color: var(--black);
 	padding: 8px 16px;
 	color: var(--white);
 }
 
 .acs-button2 {
-	border: 1px solid var(--primary);
+	border: 1px solid var(--black);
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--white);
-	padding: 8px 16px;
-	color: var(--primary);
+	background-color: var(--white1);
+	padding: 16px;
+	color: var(--black);
 }
 
 .acs-button:hover {
-	background-color: var(--background2);
-	color: var(--white);
+	border: 1px solid var(--black);
+	background-color: var(--white1);
+	color: var(--black);
 }
 
 .acs-button2:hover {
-	border: 1px solid var(--background2);
-	background-color: var(--background2);
 	color: var(--white);
+	background-color: var(--black);
+}
+
+.acs-button:click {
+	background-color: var(--black2);
 }
 
 /* Rows and Cols */
