@@ -13,12 +13,8 @@ ACS Coffee | {{employee.name}}
 	<div class="acs-form">
 		<img class="acs-logo2" src="{% static 'main/eoncoffee2.png' %}">
 		<h1 class="acs-card-title">{{employee.name}}</h1>
-		<p class="acs-card-label">Email:</p>
 		<p class="acs-card-text">{{employee.email}}</p>
-		<p class="acs-card-label">Old state:</p>
-		<p class="acs-card-text">{{employee.debth}} €</p>
-		<p class="acs-card-label">New cups:</p>
-		<p class="acs-card-text">{{employee.coffees}}</p>
+		<h1><span class="acs-card-label">{{employee.coffees}}</span> <span class="acs-card-text">cup/s</span></h1>
 		{% if output != None %}
 		<h4 style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</h4>
 		{% endif %}

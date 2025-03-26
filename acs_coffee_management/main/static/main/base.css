@@ -9,6 +9,7 @@
   --primary2: #32e2e5;
   --primary3: #e58e32;
   --secondary: #0336FF;
+  --green: #32e535;
   --border: #d2d2d2;
   --black: #000;
   --black1: #424242;
@@ -170,33 +171,36 @@ form select {
 }
 
 .acs-button {
-	border: 1px solid var(--black);
+	border: none;
+	outline: none;
+	font-weight: bold;
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--black);
+	background-color: var(--primary3);
 	padding: 8px 16px;
-	color: var(--white);
+	color: var(--black);
 }
 
 .acs-button2 {
-	border: 1px solid var(--black);
+	border: none;
+	outline: none;
+	font-weight: bold;
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--white1);
-	padding: 16px;
+	background-color: var(--primary2);
+	padding: 8px 16px;
 	color: var(--black);
 }
 
 .acs-button:hover {
-	border: 1px solid var(--black);
-	background-color: var(--white1);
-	color: var(--black);
+	background-color: var(--black);
+	color: var(--white);
 }
 
 .acs-button2:hover {
-	color: var(--white);
+	color: var(--primary3);
 	background-color: var(--black);
 }
 
@@ -234,4 +238,28 @@ form select {
   	padding: 16px;
   }
   .m {width: 100% !important;}
+}
+
+/* Accordion */
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
 }

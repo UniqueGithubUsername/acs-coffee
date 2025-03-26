@@ -14,56 +14,94 @@ ACS Coffee | FAQ
 		<img class="acs-logo2" src="{% static 'main/eoncoffee2.png' %}">
 		<h1 class="acs-card-title">Get started.</h1>
 		<br>
-		<p class="acs-card-label">How to add a cup of coffee to the list?</p>
-		<p class="acs-card-text">If using for the first time, you have to request the link to your profile through the <a href="{% url 'index' %}">Home page</a>.</p>
-		<img src="{% static 'main/example2.png' %}">
-		<br>
-		<br>
-		You will receive an email with your personal access link. Using the link will bring you to your user profile.
-		<br>
-		<br>
-		To add a cup to your user profile, use <a class="acs-button"><i class="fa fa-plus" aria-hidden="true"></i> Add a cup</a> located in your profile as shown in the picture below.</p>
-		<img src="{% static 'main/example.png' %}">
-		<br>
-		<p class="acs-card-label">How to add a cup of coffee without clicking a button?</p>
-		<p class="acs-card-text">Your link will have a personal suffix, which can be in two ways:</p>
-		<p class="acs-card-text">Accessing profile without adding cup: http://137.226.248.61:31387/user/<b>your-suffix</b></p>
-		<p class="acs-card-text">Adding a cup directly to user profile: http://137.226.248.61:31387/add/<b>your-suffix</b></p>
-		<br>
+
+		<div>
+			<button class="accordion">How to add a cup of coffee to the list?</button>
+			<div class="panel">
+  				<p class="acs-card-text">If using for the first time, you have to request the link to your profile through the <a class="acs-button2" href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i> Home page</a>.</p>
+  				<p>You will receive an email with your personal access link. Using the link will bring you to your user profile.</p>
+  				<p>To add a cup to your user profile, use <a class="acs-button"><i class="fa fa-coffee" aria-hidden="true"></i> Add a cup</a> located in your profile as shown in the picture below.</p></p>
+			</div>
+
+			<button class="accordion">How to add a cup of coffee without clicking a button?</button>
+			<div class="panel">
+  				<p>Your link will have a personal suffix, which can be in two ways:</p>
+				<p>Accessing profile without adding cup: http://137.226.248.61:31387/user/<b>your-suffix</b></p>
+				<p>Adding a cup directly to user profile: http://137.226.248.61:31387/add/<b>your-suffix</b></p>
+			</div>
+
+			<button class="accordion">Why online?</button>
+			<div class="panel">
+  			<p>The main reasons for making the coffee management an online service are reducing the time and effort for coffee administration, not having to print the coffee list, less manual work for accountings, bills can be send per email and new people can be added onto the list by everyone.</p>
+			</div>
+		</div>
+
 		<h4 class="acs-card-label">Enjoy your coffees :)</h4>
 		<br>
 		<br>
 		<h2 class="acs-card-title">Help</h2>
 		<br>
-		<p class="acs-card-label">Why online?</p>
-		<p class="acs-card-text">The main reasons for making the coffee management an online service are reducing the time and effort for coffee administration, not having to print the coffee list, less manual work for accountings, bills can be send per email and new people can be added onto the list by everyone.</p>
-		<br>
-		<p class="acs-card-label">I cannot request my link because my email is missing.</p>
-		<p class="acs-card-text">Please contact ACS Coffee administration to store your email in the database.</p>
-		<br>
-		<p class="acs-card-label">I did not receive my link after requesting it.</p>
-		<p class="acs-card-text">In this case, the SMTP server might be having an issue or the email stored in the database might be wrong. Please contact ACS Coffee Administration.</p>
-		<br>
-		<p class="acs-card-label">I lost my link, what to do now?</p>
-		<p class="acs-card-text">In the case that you forgot or lost your access link, employees can request it again through the front page by clicking on Request link.</p>
-		<br>
-		<p class="acs-card-label">Can i change my link to something more convenient?</p>
-		<p class="acs-card-text">Yes, you can change your personal access link by visiting your profile and click on <b>Edit profile</b></p>
-		<br>
-		<p class="acs-card-label">Is my link accessible by others?</p>
-		<p class="acs-card-text">Even tho the links get distributed personally by email, other employees could possibly access it.</p>
-		<br>
-		<p class="acs-card-label">Something is wrong with your profile?</p>
-		<p class="acs-card-text">Please contact ACS Coffee Administration.</p>
-		<br>
-		<p class="acs-card-label">How can i pay my current debt?</p>
-		<p class="acs-card-text">There will be monthy/quarterly billing emails with instructions to pay.</p>
-		<br>
-		<p class="acs-card-label">I need to pay immediately because i am leaving ACS soon.</p>
-		<p class="acs-card-text">Please contact ACS Coffee Administration.</p>
-		<br>
-		<br>
-		<p><a class="acs-button" href="mailto:lukas.lenz@eonerc.rwth-aachen.de"><i class="fa fa-question" aria-hidden="true"></i> Contact administration</a></p>
+
+		<div>
+			<button class="accordion">I cannot request my link because my email is missing.</button>
+			<div class="panel">
+  				<p>Please contact ACS Coffee administration to store your email in the database.</p>
+			</div>
+
+			<button class="accordion">I did not receive my link after requesting it.</button>
+			<div class="panel">
+  				<p>In this case, the SMTP server might be having an issue or the email stored in the database might be wrong. Please contact ACS Coffee Administration.</p>
+			</div>
+
+			<button class="accordion">I lost my link, what to do now?</button>
+			<div class="panel">
+  			<p>In the case that you forgot or lost your access link, employees can request it again through the front page by clicking on Request link.</p>
+			</div>
+
+			<button class="accordion">Can i change my link to something more convenient?</button>
+			<div class="panel">
+  			<p>Yes, you can change your personal access link by visiting your profile and click on <b>Edit profile</b></p>
+			</div>
+
+			<button class="accordion">Is my link accessible by others?</button>
+			<div class="panel">
+  			<p>Even tho the links get distributed personally by email, other employees could possibly access it.</p>
+			</div>
+
+			<button class="accordion">How can i pay my current debt?</button>
+			<div class="panel">
+  			<p>Payments through PayPal. Contact ACS Administration.</p>
+			</div>
+
+			<button class="accordion">I need to pay immediately because i am leaving ACS soon.</button>
+			<div class="panel">
+  			<p>Please contact ACS Coffee Administration.</p>
+  			<p><a class="acs-button" href="mailto:lukas.lenz@eonerc.rwth-aachen.de"><i class="fa fa-question" aria-hidden="true"></i> Contact administration</a></p>
+			</div>
 		<p><a class="acs-button2" href="{% url 'index' %}"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a></p>
+		</div>
 	</div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
 {% endblock %}
