@@ -61,6 +61,7 @@ def faq(request):
 	context = {}
 	return render(request, 'main/faq.html', context)
 
+@login_required
 def importxlsx(request):
 	df = pd.read_excel('employees_input.xlsx')
 	
@@ -77,6 +78,7 @@ def importxlsx(request):
 	context = {'employees':employees, 'output':output}
 	return render(request, 'main/index.html', context)
 
+@login_required
 def export(request):
 	employees = Employee.objects.all()
 	# Save as .csv
@@ -150,7 +152,7 @@ def editprofile(request , id):
 
     return render(request, "registration/login.html", {"form": form})
 
-
+@login_required
 def mailtoemployee(request, id):
 	employee = Employee.objects.get(id=id)
 	# Send email to one employee
@@ -192,6 +194,7 @@ def getlink(request, id):
 	context = {'employees':employees,'today':coffees_today,'week':coffees_week,'month':coffees_month,'total':coffees_total,'output':output}
 	return render(request, 'main/index.html', context)
 
+@login_required
 def calcdebth(request):
 	employees = Employee.objects.all()
 	global coffee_price
@@ -206,6 +209,7 @@ def calcdebth(request):
 	context = {'employees':employees, 'output':output}
 	return render(request, 'main/index.html', context)
 
+@login_required
 def broadcast(request):
 	employees = Employee.objects.all()
 	for employee in employees:

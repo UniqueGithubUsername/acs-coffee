@@ -19,8 +19,8 @@ ACS Coffee | {{employee.name}}
 		<h4 style="color: green"><i class="fa fa-check" aria-hidden="true"></i> {{output}}</h4>
 		{% endif %}
 		<p><a class="acs-button" href="{% url 'add' employee.qr %}"><i class="fa fa-coffee" aria-hidden="true"></i> Add a cup</a></p>
-		<p><a class="acs-button2" target="_blank" href="https://www.paypal.com/de/home/"><i class="fa fa-paypal" aria-hidden="true"></i> Link to Paypal</a></p>
 		<p><a class="acs-button2" href="{% url 'editprofile' employee.id %}"><i class="fa fa-cog" aria-hidden="true"></i> Edit profile</a></p>
+		<p><a class="acs-button2" href="mailto:cesar.cazal@eonerc.rwth-aachen.de,lukas.lenz@eonerc.rwth-aachen.de"><i class="fa fa-question" aria-hidden="true"></i> Contact administration</a></p>
 		<p><a class="acs-button2" href="{% url 'index' %}"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back</a></p>
 	</div>
 {% endblock %}

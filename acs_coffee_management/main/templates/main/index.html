@@ -24,17 +24,17 @@ ACS Coffee
   		<form action="{% url 'index' %}" method="post">
 			{% csrf_token %}
   			{{ form.as_p }}
-  			<button class="acs-button2" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Go</button>
+  			<button class="acs-button" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Go</button>
 		</form>
 		<div class="acs-form-lower">
   			<h4>How does it work?</h4>
-			<p><a class="acs-button" href="{% url 'faq' %}"><i class="fa fa-info" aria-hidden="true"></i> Get started</a></p>
+			<p><a class="acs-button2" href="{% url 'faq' %}"><i class="fa fa-info" aria-hidden="true"></i> Get started</a></p>
 
 			<h4>Cant find yourself on the list?</h4>
-			<p><a class="acs-button" href="{% url 'newemployee' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Add person</a></p>
+			<p><a class="acs-button2" href="{% url 'newemployee' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Add person</a></p>
 
 			<h4>Need additional help?</h4>
-			<p><a class="acs-button" href="mailto:lukas.lenz@eonerc.rwth-aachen.de"><i class="fa fa-question" aria-hidden="true"></i> Contact administration</a></p>
+			<p><a class="acs-button2" href="mailto:cesar.cazal@eonerc.rwth-aachen.de,lukas.lenz@eonerc.rwth-aachen.de"><i class="fa fa-question" aria-hidden="true"></i> Contact administration</a></p>
 		</div>
 		<img class="acs-logo2" src="{% static 'main/eonlogol.png' %}">
 	</div>
@@ -63,11 +63,11 @@ ACS Coffee
 	<div class="acs-col s"><p>{{employee.debth}} €</p></div>
 	<div class="acs-col s"><p>{{employee.coffees}} cup/s</p></div>
 	<div class="acs-col s">
-		<p><a class="acs-button" href="{% url 'mail' employee.id %}">Mail</a>
+		<p><a class="acs-button2" href="{% url 'mail' employee.id %}">Mail</a>
 		</p>
-		<p><a class="acs-button" href="{% url 'user' employee.qr %}">Profile</a></p>
+		<p><a class="acs-button2" href="{% url 'user' employee.qr %}">Profile</a></p>
 		{% if employee.email != 'nan' %}
-		<p><a class="acs-button" href="{% url 'getlink' employee.id %}" >Get link</a></p>
+		<p><a class="acs-button2" href="{% url 'getlink' employee.id %}" >Get link</a></p>
 		{% else %}
 		<p><a disabled>Email missing</a></p>
 		{% endif %}

@@ -23,14 +23,14 @@
   {% if user.is_authenticated %}
   <form id="logout-form" method="post" action="/admin/logout/">
     {% csrf_token %}
-    <button class="acs-button" type="submit" style="float: right;"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+    <button class="acs-button2" type="submit" style="float: right;"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
   </form>
-  <a class="acs-button" href="{% url 'export' %}" style="float: right;"><i class="fa fa-download" aria-hidden="true"></i></a>
-  <a class="acs-button" href="{% url 'importxlsx' %}" style="float: right;"><i class="fa fa-upload" aria-hidden="true"></i></a>
-  <a class="acs-button" href="{% url 'calcdebth' %}" style="float: right;"><i class="fa fa-coffee" aria-hidden="true"></i></a>
-  <a class="acs-button" href="{% url 'broadcast' %}" style="float: right;"><i class="fa fa-bullhorn" aria-hidden="true"></i></a>
+  <a class="acs-button2" href="{% url 'export' %}" style="float: right;"><i class="fa fa-download" aria-hidden="true"></i></a>
+  <a class="acs-button2" href="{% url 'importxlsx' %}" style="float: right;"><i class="fa fa-upload" aria-hidden="true"></i></a>
+  <a class="acs-button2" href="{% url 'calcdebth' %}" style="float: right;"><i class="fa fa-coffee" aria-hidden="true"></i></a>
+  <a class="acs-button2" href="{% url 'broadcast' %}" style="float: right;"><i class="fa fa-bullhorn" aria-hidden="true"></i></a>
   {% else %}
-  <a class="acs-button" href="{% url 'login' %}" style="float: right;"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+  <a class="acs-button2" href="{% url 'login' %}" style="float: right;"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
   {% endif %}
   {% block nav %}
   {% endblock %}

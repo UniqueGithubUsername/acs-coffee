@@ -26,7 +26,7 @@ html {
 }
 
 p {
-	font-size: 24px;
+	font-size: 14px;
 }
 
 a {
@@ -171,37 +171,37 @@ form select {
 }
 
 .acs-button {
-	border: none;
+	border: 2px solid var(--black);
 	outline: none;
 	font-weight: bold;
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--primary3);
-	padding: 8px 16px;
+	background-color: var(--white);
+	padding: 16px 16px;
 	color: var(--black);
 }
 
 .acs-button2 {
-	border: none;
+	border: 1px solid var(--black);
 	outline: none;
-	font-weight: bold;
+	font-weight: normal;
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--primary2);
+	background-color: var(--white);
 	padding: 8px 16px;
 	color: var(--black);
 }
 
 .acs-button:hover {
-	background-color: var(--black);
-	color: var(--white);
+	border: 2px solid var(--primary2);
+	color: var(--primary2);
 }
 
 .acs-button2:hover {
+	border: 1px solid var(--primary3);
 	color: var(--primary3);
-	background-color: var(--black);
 }
 
 .acs-button:click {
