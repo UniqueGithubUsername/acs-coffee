@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'acs_coffee_management.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'usr/share/acs-coffee/db.sqlite3',
     }
 }
 
