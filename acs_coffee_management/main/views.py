@@ -16,8 +16,8 @@ from django.http import HttpResponse, Http404
 from .models import Employee, Coffee
 from .forms import ChangeEmployeeForm, EmployeeForm, ChooseEmployeeForm
 
-baseurl = "http://137.226.248.61:31387/user/"
-addurl = "http://137.226.248.61:31387/add/"
+baseurl = "http://137.226.248.61:31388/user/"
+addurl = "http://137.226.248.61:31388/add/"
 coffee_price = 30
 
 def index(request):
