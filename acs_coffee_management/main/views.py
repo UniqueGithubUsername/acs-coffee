@@ -156,9 +156,9 @@ def editprofile(request , id):
 def mailtoemployee(request, id):
 	employee = Employee.objects.get(id=id)
 	# Send email to one employee
-	text = "Dear " + employee.name + ",\n\n\nthe link to your coffee profile:\n" + baseurl + employee.qr + "\n\nOr to add a cup directly use this link:\n" + addurl + employee.qr + "\n\nYour current coffee bill:\n" + str(employee.debth) + "€\n\nYour current cups (not calculated in the current bill):\n" + str(employee.coffees) + "\n\n\nCheers!"
+	text = "Dear " + employee.name + ",\n\n\nthe link to your coffee profile:\n" + baseurl + employee.qr + "\n\nOr to add a cup directly use this link:\n" + addurl + employee.qr + "\n\n\nCheers!"
 	send_mail(
-		"ACS Coffee | Current debth",
+		"ACS Coffee | Your access link",
 		text,
 		"lukas.lenz@eonerc.rwth-aachen.de",
 		[employee.email],
@@ -177,7 +177,7 @@ def getlink(request, id):
 	text = "Dear " + employee.name + ",\n\n\nthe link to your coffee profile:\n" + baseurl + employee.qr + "\n\nOr to add a cup directly use this link:\n" + addurl + employee.qr + "\n\nYour current coffee bill:\n" + str(employee.debth) + "€\n\nYour current cups (not calculated in the current bill):\n" + str(employee.coffees) + "\n\n\nCheers!"
 
 	send_mail(
-		"ACS Coffee | Current debth",
+		"ACS Coffee | Your access link",
 		text,
 		"lukas.lenz@eonerc.rwth-aachen.de",
 		[employee.email],
@@ -214,7 +214,7 @@ def broadcast(request):
 	employees = Employee.objects.all()
 	for employee in employees:
 		# Send emails to each employees
-		text = "Dear " + employee.name + ",\n\n\nthe link to your coffee profile:\n" + baseurl + employee.qr + "\n\nOr to add a cup directly use this link:\n" + addurl + employee.qr + "\n\nYour current coffee bill:\n" + str(employee.debth) + "€\n\nYour current cups (not calculated in the current bill):\n" + str(employee.coffees) + "\n\n\nCheers!"
+		text = "Dear " + employee.name + ",\n\n\nthe link to your coffee profile:\n" + baseurl + employee.qr + "\n\nOr to add a cup directly use this link:\n" + addurl + employee.qr + "\n\n\nCheers!"
 		send_mail(
     	"ACS Coffee | Current debth",
     	text,

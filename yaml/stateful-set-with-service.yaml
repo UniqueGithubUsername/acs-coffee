@@ -18,7 +18,7 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: web
+  name: acs-coffee-list
   namespace: acs-coffee-list
 spec:
   selector:
@@ -35,7 +35,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: acs-coffee
-        image: uniquedockeraccount/django-coffee:latest
+        image: registry.gitlab.com/uniquegithubusername/acs-coffee:latest
         ports:
         - containerPort: 8000
           name: web
@@ -43,7 +43,7 @@ spec:
         - name: www
           mountPath: /usr/share/acs-coffee
       imagePullSecrets:
-      - name: django-secret
+      - name: uniquegithubaccount-token
   volumeClaimTemplates:
   - apiVersion: v1
     kind: PersistentVolumeClaim

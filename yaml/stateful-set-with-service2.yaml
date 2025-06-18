@@ -34,7 +34,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: acs-coffee
-        image: uniquedockeraccount/django-coffee:latest
+        image: registry.gitlab.com/uniquegithubaccount/acs-coffee:latest
         ports:
         - containerPort: 8000
           name: web
