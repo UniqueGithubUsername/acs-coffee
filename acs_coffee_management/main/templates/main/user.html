@@ -13,6 +13,8 @@ ACS Coffee | {{employee.name}}
 	<div class="acs-form">
 		<img class="acs-logo2" src="{% static 'main/eoncoffee2.png' %}">
 		<h1 class="acs-card-title">{{employee.name}}</h1>
+		<p class="acs-card-text">{{employee.type}}</p>
+		<p class="acs-card-text">{{employee.building}}</p>
 		<p class="acs-card-text">{{employee.email}}</p>
 		<h1><span class="acs-card-label">{{employee.coffees}}</span> <span class="acs-card-text">cup/s</span></h1>
 		{% if output != None %}

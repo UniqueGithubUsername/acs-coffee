@@ -5,9 +5,9 @@
   --font: #121212;
   --font-light: #343434;
   --error: #cf6679;
-  --primary: #e53632;
-  --primary2: #32e2e5;
-  --primary3: #e58e32;
+  --primary: #3c141c;
+  --primary2: #143c34;
+  --primary3: #3c1430;
   --secondary: #0336FF;
   --green: #32e535;
   --border: #d2d2d2;
@@ -53,7 +53,7 @@ button, a {
 .acs-nav {
 	overflow: hidden;
 	padding: 8px 10%;
-	background-color: var(--background);
+	background-color: var(--primary);
 }
 
 .acs-link {
@@ -74,26 +74,22 @@ button, a {
 }
 
 .acs-content {
-	text-align: center;
+	text-align: left;
 	padding: 32px 10%;
 	background-color: var(--background);
 }
 
 .acs-footer {
-	background-color: var(--background);
+	background-color: var(--primary3);
 	padding: 32px 10%;
 	text-align: left;
 }
 
 .acs-form {
 	text-align: left;
-	background-color: var(--background);
-	padding: 32px;
 }
 
 .acs-form-lower {
-	background-color: var(--background);
-	padding: 32px 0;
 }
 
 form label {
@@ -171,37 +167,34 @@ form select {
 }
 
 .acs-button {
-	border: 2px solid var(--black);
+	border: none;
 	outline: none;
-	font-weight: bold;
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--white);
+	background-color: var(--white1);
 	padding: 16px 16px;
-	color: var(--black);
+	color: var(--primary2);
 }
 
 .acs-button2 {
-	border: 1px solid var(--black);
 	outline: none;
-	font-weight: normal;
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--white);
 	padding: 8px 16px;
-	color: var(--black);
+	color: var(--primary);
+	background-color: var(--white1);
 }
 
 .acs-button:hover {
-	border: 2px solid var(--primary2);
+	background-color: var(--white2);
 	color: var(--primary2);
 }
 
 .acs-button2:hover {
-	border: 1px solid var(--primary3);
-	color: var(--primary3);
+	background-color: var(--white2);
+	color: var(--primary);
 }
 
 .acs-button:click {
@@ -224,7 +217,7 @@ form select {
 }
 
 .s {
-	width: 25%;
+	width: 16.6%;
 }
 
 .m {
@@ -234,7 +227,6 @@ form select {
 @media screen and (max-width: 800px) {
   /* mobile settings: */
   .acs-content {
-  	text-align: center;
   	padding: 16px;
   }
   .m {width: 100% !important;}
