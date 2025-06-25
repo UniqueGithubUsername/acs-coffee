@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="acs-nav" id="acs-nav">
-  <a class="acs-link" href="{% url 'index' %}" style="float: left;"><img class="acs-logo" src="{% static 'main/logowhite.png' %}"></a>
+  <a class="acs-link" href="{% url 'index' %}" style="float: left;"><img class="acs-logo" src="{% static 'main/eoncoffee3.png' %}"></a>
   {% if user.is_authenticated %}
   <form id="logout-form" method="post" action="/admin/logout/">
     {% csrf_token %}

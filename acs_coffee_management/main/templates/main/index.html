@@ -10,32 +10,29 @@ ACS Coffee | Home
 {% endblock %}
 
 {% block content2 %}
-<h1>ACS Coffee</h1>
-<div class="acs-row">
-	<div class="acs-col m">
-		<div class="acs-form">
-			<p>Request your access link and enter your email for verification.</p>
-			<p>Please only use non-capital letters for your email.</p>
-			{% if output != None %}
-			<h4 style="color: var(--error);">{{output}}</h4>
-			{% endif %}
-			  <form action="{% url 'index' %}" method="post">
-				{% csrf_token %}
-				  {{ form.as_p }}
-				  <button class="acs-button" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Go</button>
-			</form>
-		</div>
+<div class="acs-home">
+	<img class="acs-logo2" src="{% static 'main/eoncoffee2.png' %}">
+	<h1>ACS Coffee</h1>
+	<div class="acs-form">
+		<p>Request your access link and enter your email for verification.</p>
+		<p>Please only use non-capital letters for your email.</p>
+		{% if output != None %}
+		<h4 style="color: var(--error);">{{output}}</h4>
+		{% endif %}
+		  <form action="{% url 'index' %}" method="post">
+			{% csrf_token %}
+			  {{ form.as_p }}
+			  <button class="acs-button" type="submit"><i class="fa fa-envelope" aria-hidden="true"></i> Go</button>
+		</form>
 	</div>
-	<div class="acs-col m">
-		<div class="acs-form-lower">
-			<h4>How does it work?</h4>
-			<p><a class="acs-button2" href="{% url 'faq' %}"><i class="fa fa-info" aria-hidden="true"></i> Get started</a></p>
-			<h4>Cant find yourself on the list?</h4>
-			<p><a class="acs-button2" href="{% url 'newemployee' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Add person</a></p>
-			<h4>Need additional help?</h4>
-			<p><a class="acs-button2" href="mailto:cesar.cazal@eonerc.rwth-aachen.de,lukas.lenz@eonerc.rwth-aachen.de"><i class="fa fa-question" aria-hidden="true"></i> Contact administration</a></p>
-	  	</div>
-	</div>
+	<div class="acs-form-lower">
+		<h4>How does it work?</h4>
+		<p><a class="acs-button2" href="{% url 'faq' %}"><i class="fa fa-info" aria-hidden="true"></i> Get started</a></p>
+		<h4>Cant find yourself on the list?</h4>
+		<p><a class="acs-button2" href="{% url 'newemployee' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Add person</a></p>
+		<h4>Need additional help?</h4>
+		<p><a class="acs-button2" href="mailto:cesar.cazal@eonerc.rwth-aachen.de,lukas.lenz@eonerc.rwth-aachen.de"><i class="fa fa-question" aria-hidden="true"></i> Contact administration</a></p>
+	  </div>
 </div>
 <br>
 <br>

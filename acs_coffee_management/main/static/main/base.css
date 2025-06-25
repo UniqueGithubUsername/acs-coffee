@@ -53,7 +53,7 @@ button, a {
 .acs-nav {
 	overflow: hidden;
 	padding: 8px 10%;
-	background-color: var(--primary);
+	background-color: var(--white);
 }
 
 .acs-link {
@@ -73,6 +73,10 @@ button, a {
 	height: 64px;
 }
 
+.acs-home {
+	text-align: center;
+}
+
 .acs-content {
 	text-align: left;
 	padding: 32px 10%;
@@ -80,13 +84,13 @@ button, a {
 }
 
 .acs-footer {
-	background-color: var(--primary3);
+	background-color: var(--white);
 	padding: 32px 10%;
 	text-align: left;
 }
 
 .acs-form {
-	text-align: left;
+	text-align: center;
 }
 
 .acs-form-lower {
@@ -167,33 +171,32 @@ form select {
 }
 
 .acs-button {
-	border: none;
+	border: 1px solid var(--black);
 	outline: none;
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
-	background-color: var(--white1);
+	background-color: var(--white);
 	padding: 16px 16px;
-	color: var(--primary2);
+	color: var(--black);
 }
 
 .acs-button2 {
-	outline: none;
+	outline: 1px solid var(--black);
 	border-radius: 8px;
 	cursor: pointer;
 	display: inline-block;
 	padding: 8px 16px;
-	color: var(--primary);
-	background-color: var(--white1);
+	color: var(--black);
+	background-color: var(--white);
 }
 
 .acs-button:hover {
-	background-color: var(--white2);
-	color: var(--primary2);
+	background-color: var(--white1);
 }
 
 .acs-button2:hover {
-	background-color: var(--white2);
+	background-color: var(--white1);
 	color: var(--primary);
 }
 
